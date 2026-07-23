@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.balloro.x3000.server</string>
+  <string>com.balloro.treasure.server</string>
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
-    <string>/Users/grigorydorin/Library/Application Support/Balloro X3000/field-generator-server.py</string>
+    <string>/Users/grigorydorin/Library/Application Support/Balloro Treasure/field-generator-server.py</string>
     <string>--port</string>
-    <string>8767</string>
+    <string>8768</string>
   </array>
   <key>WorkingDirectory</key>
-  <string>/Users/grigorydorin/Library/Application Support/Balloro X3000</string>
+  <string>/Users/grigorydorin/Library/Application Support/Balloro Treasure</string>
   <key>RunAtLoad</key>
   <true/>
   <key>KeepAlive</key>
@@ -27,8 +27,8 @@
     <string>1</string>
   </dict>
   <key>StandardOutPath</key>
-  <string>/Users/grigorydorin/Library/Application Support/Balloro X3000/balloro-server.log</string>
+  <string>/Users/grigorydorin/Library/Application Support/Balloro Treasure/balloro-server.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/grigorydorin/Library/Application Support/Balloro X3000/balloro-server-error.log</string>
+  <string>/Users/grigorydorin/Library/Application Support/Balloro Treasure/balloro-server-error.log</string>
 </dict>
 </plist>

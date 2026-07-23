@@ -14,13 +14,13 @@ Requirements:
 Start the local server from the repository root:
 
 ```sh
-python3 field-generator-server.py --port 8767
+python3 field-generator-server.py --port 8768
 ```
 
 Open:
 
-- Game: `http://127.0.0.1:8767/index.html`
-- Field generator: `http://127.0.0.1:8767/field-generator.html`
+- Game: `http://127.0.0.1:8768/index.html`
+- Field generator: `http://127.0.0.1:8768/field-generator.html`
 
 The Python server is preferred over a generic static server because it also provides the local API used to save field-generator configurations.
 
@@ -31,6 +31,8 @@ zsh sync-balloro-server.sh
 ```
 
 The sync keeps `math/field-generator-store.json` intact and deploys only runtime files. Developer reports, tests, Git data, and legacy experiments are excluded from the served copy.
+
+Balloro Treasure has its own service, deployment directory, and port. Port `8767` is reserved for the separate Balloro X project.
 
 ## Game flow
 

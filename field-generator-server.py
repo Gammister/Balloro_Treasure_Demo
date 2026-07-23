@@ -140,7 +140,7 @@ class BalloroRequestHandler(SimpleHTTPRequestHandler):
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--port", type=int, default=8767)
+    parser.add_argument("--port", type=int, default=8768)
     args = parser.parse_args()
     server = ThreadingHTTPServer(("127.0.0.1", args.port), BalloroRequestHandler)
     print(f"Balloro Treasure: http://127.0.0.1:{args.port}/index.html", flush=True)
