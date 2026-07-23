@@ -1,0 +1,609 @@
+{
+  "generated_at": "2026-07-07T15:14:40.056Z",
+  "elapsed_seconds": 33.781,
+  "method": "Alias-sampled Monte Carlo over exact round outcome distribution",
+  "rounds_per_line": 100000000,
+  "total_simulated_rounds": 600000000,
+  "simulated_layout_mode": "dynamic_diagonal_width",
+  "simulated_pucks": 3,
+  "target_rtp": 0.9745,
+  "line_results": [
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 5,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 1755563631,
+      "simulated_rtp": 0.9745389885844433,
+      "exact_rtp": 0.9744999999999959,
+      "target_rtp": 0.9745,
+      "delta_from_target": 0.00003898858444328912,
+      "delta_basis_points": 0.3898858444328912,
+      "standard_error": 0.00012636268698327434,
+      "confidence_95_half_width": 0.0002476708664872177,
+      "confidence_95_half_width_basis_points": 2.4767086648721772,
+      "simulated_hit_frequency": 0.98800626,
+      "simulated_win_above_bet_frequency": 0.36821429,
+      "simulated_max_win_multiplier": 74
+    },
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 6,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 662631142,
+      "simulated_rtp": 0.9744413173426294,
+      "exact_rtp": 0.9744999999999977,
+      "target_rtp": 0.9745,
+      "delta_from_target": -0.000058682657370634494,
+      "delta_basis_points": -0.586826573706345,
+      "standard_error": 0.00016465643097043813,
+      "confidence_95_half_width": 0.00032272660470205873,
+      "confidence_95_half_width_basis_points": 3.227266047020587,
+      "simulated_hit_frequency": 0.84439722,
+      "simulated_win_above_bet_frequency": 0.2907219,
+      "simulated_max_win_multiplier": 110
+    },
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 7,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 3519590253,
+      "simulated_rtp": 0.9742364967806105,
+      "exact_rtp": 0.9744999999999996,
+      "target_rtp": 0.9745,
+      "delta_from_target": -0.00026350321938950483,
+      "delta_basis_points": -2.6350321938950483,
+      "standard_error": 0.00018539432621117132,
+      "confidence_95_half_width": 0.0003633728793738958,
+      "confidence_95_half_width_basis_points": 3.6337287937389577,
+      "simulated_hit_frequency": 0.72276462,
+      "simulated_win_above_bet_frequency": 0.30368048,
+      "simulated_max_win_multiplier": 200
+    },
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 8,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 2984585380,
+      "simulated_rtp": 0.9743043801603021,
+      "exact_rtp": 0.9745000000000009,
+      "target_rtp": 0.9745,
+      "delta_from_target": -0.00019561983969795804,
+      "delta_basis_points": -1.9561983969795804,
+      "standard_error": 0.00025277856491318676,
+      "confidence_95_half_width": 0.000495445987229846,
+      "confidence_95_half_width_basis_points": 4.95445987229846,
+      "simulated_hit_frequency": 0.49441265,
+      "simulated_win_above_bet_frequency": 0.18966211,
+      "simulated_max_win_multiplier": 210
+    },
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 9,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 760759907,
+      "simulated_rtp": 0.9739823994786412,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "delta_from_target": -0.0005176005213588519,
+      "delta_basis_points": -5.176005213588519,
+      "standard_error": 0.0002868188934537339,
+      "confidence_95_half_width": 0.0005621650311693184,
+      "confidence_95_half_width_basis_points": 5.621650311693184,
+      "simulated_hit_frequency": 0.40147935,
+      "simulated_win_above_bet_frequency": 0.34987784,
+      "simulated_max_win_multiplier": 266.6666666666667
+    },
+    {
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 10,
+      "pucks": 3,
+      "rounds": 100000000,
+      "seed": 3591999187,
+      "simulated_rtp": 0.9745896621845721,
+      "exact_rtp": 0.9744999999999968,
+      "target_rtp": 0.9745,
+      "delta_from_target": 0.0000896621845720702,
+      "delta_basis_points": 0.896621845720702,
+      "standard_error": 0.00045780370814423976,
+      "confidence_95_half_width": 0.00089729526796271,
+      "confidence_95_half_width_basis_points": 8.972952679627099,
+      "simulated_hit_frequency": 0.21958279,
+      "simulated_win_above_bet_frequency": 0.19206117,
+      "simulated_max_win_multiplier": 333.3333333333333
+    }
+  ],
+  "exact_configuration_results": [
+    {
+      "id": "current-lines-5-1",
+      "layout_mode": "current",
+      "lines": 5,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999995,
+      "target_rtp": 0.9745,
+      "absolute_error": 5.551115123125783e-16
+    },
+    {
+      "id": "current-lines-5-2",
+      "layout_mode": "current",
+      "lines": 5,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "current-lines-5-3",
+      "layout_mode": "current",
+      "lines": 5,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999996,
+      "target_rtp": 0.9745,
+      "absolute_error": 4.440892098500626e-16
+    },
+    {
+      "id": "current-lines-6-1",
+      "layout_mode": "current",
+      "lines": 6,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "current-lines-6-2",
+      "layout_mode": "current",
+      "lines": 6,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000001,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "current-lines-6-3",
+      "layout_mode": "current",
+      "lines": 6,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999976,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.4424906541753444e-15
+    },
+    {
+      "id": "current-lines-7-1",
+      "layout_mode": "current",
+      "lines": 7,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "current-lines-7-2",
+      "layout_mode": "current",
+      "lines": 7,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000001,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "current-lines-7-3",
+      "layout_mode": "current",
+      "lines": 7,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000003,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "current-lines-8-1",
+      "layout_mode": "current",
+      "lines": 8,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "current-lines-8-2",
+      "layout_mode": "current",
+      "lines": 8,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "current-lines-8-3",
+      "layout_mode": "current",
+      "lines": 8,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000003,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "current-lines-9-1",
+      "layout_mode": "current",
+      "lines": 9,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "current-lines-9-2",
+      "layout_mode": "current",
+      "lines": 9,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "current-lines-9-3",
+      "layout_mode": "current",
+      "lines": 9,
+      "pucks": 3,
+      "exact_rtp": 0.974500000000001,
+      "target_rtp": 0.9745,
+      "absolute_error": 9.992007221626409e-16
+    },
+    {
+      "id": "current-lines-10-1",
+      "layout_mode": "current",
+      "lines": 10,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "current-lines-10-2",
+      "layout_mode": "current",
+      "lines": 10,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000007,
+      "target_rtp": 0.9745,
+      "absolute_error": 6.661338147750939e-16
+    },
+    {
+      "id": "current-lines-10-3",
+      "layout_mode": "current",
+      "lines": 10,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000009,
+      "target_rtp": 0.9745,
+      "absolute_error": 8.881784197001252e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-5-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 5,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-5-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 5,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-5-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 5,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999959,
+      "target_rtp": 0.9745,
+      "absolute_error": 4.107825191113079e-15
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-6-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 6,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999995,
+      "target_rtp": 0.9745,
+      "absolute_error": 5.551115123125783e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-6-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 6,
+      "pucks": 2,
+      "exact_rtp": 0.9745000000000003,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-6-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 6,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999977,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.3314683517128287e-15
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-7-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 7,
+      "pucks": 1,
+      "exact_rtp": 0.9745000000000001,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-7-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 7,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-7-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 7,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999996,
+      "target_rtp": 0.9745,
+      "absolute_error": 4.440892098500626e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-8-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 8,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-8-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 8,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999996,
+      "target_rtp": 0.9745,
+      "absolute_error": 4.440892098500626e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-8-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 8,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000009,
+      "target_rtp": 0.9745,
+      "absolute_error": 8.881784197001252e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-9-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 9,
+      "pucks": 1,
+      "exact_rtp": 0.9745,
+      "target_rtp": 0.9745,
+      "absolute_error": 0
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-9-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 9,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-9-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 9,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-10-1",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 10,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-10-2",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 10,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "dynamic_diagonal_width-lines-10-3",
+      "layout_mode": "dynamic_diagonal_width",
+      "lines": 10,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999968,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.219646771412954e-15
+    },
+    {
+      "id": "plinko_zone_style-lines-5-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 5,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-5-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 5,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999997,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-5-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 5,
+      "pucks": 3,
+      "exact_rtp": 0.974499999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.9984014443252818e-15
+    },
+    {
+      "id": "plinko_zone_style-lines-6-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 6,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-6-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 6,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999995,
+      "target_rtp": 0.9745,
+      "absolute_error": 5.551115123125783e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-6-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 6,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999995,
+      "target_rtp": 0.9745,
+      "absolute_error": 5.551115123125783e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-7-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 7,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-7-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 7,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-7-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 7,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999979,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.1094237467877974e-15
+    },
+    {
+      "id": "plinko_zone_style-lines-8-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 8,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-8-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 8,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-8-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 8,
+      "pucks": 3,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-9-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 9,
+      "pucks": 1,
+      "exact_rtp": 0.9745000000000004,
+      "target_rtp": 0.9745,
+      "absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-9-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 9,
+      "pucks": 2,
+      "exact_rtp": 0.9744999999999998,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-9-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 9,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999977,
+      "target_rtp": 0.9745,
+      "absolute_error": 2.3314683517128287e-15
+    },
+    {
+      "id": "plinko_zone_style-lines-10-1",
+      "layout_mode": "plinko_zone_style",
+      "lines": 10,
+      "pucks": 1,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "id": "plinko_zone_style-lines-10-2",
+      "layout_mode": "plinko_zone_style",
+      "lines": 10,
+      "pucks": 2,
+      "exact_rtp": 0.9745,
+      "target_rtp": 0.9745,
+      "absolute_error": 0
+    },
+    {
+      "id": "plinko_zone_style-lines-10-3",
+      "layout_mode": "plinko_zone_style",
+      "lines": 10,
+      "pucks": 3,
+      "exact_rtp": 0.9744999999999999,
+      "target_rtp": 0.9745,
+      "absolute_error": 1.1102230246251565e-16
+    }
+  ],
+  "max_exact_configuration_error": 4.107825191113079e-15
+}

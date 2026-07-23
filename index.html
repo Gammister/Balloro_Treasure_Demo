@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Balloro Treasure</title>
+  <link rel="stylesheet" href="style.css?v=20260723-10">
+</head>
+<body class="treasure-mode bonuses-enabled">
+  <main class="game-shell">
+    <section class="topbar">
+      <div class="brand">
+        <div>
+          <h1 class="balloro-logo" aria-label="Balloro Treasure"><span class="brand-ball">Balloro&nbsp;</span><span class="brand-treasure">Treasure</span></h1>
+        </div>
+      </div>
+      <button id="soundButton" class="icon-button sound-button" type="button" aria-label="Toggle game audio" data-i18n-aria="muteAudio"></button>
+      <div class="bank" aria-label="Balance" aria-live="polite">
+        <strong id="bankedLoot">100,000.00 USD</strong>
+      </div>
+      <div class="menu-wrap">
+        <button id="menuButton" class="icon-button menu-button" type="button" aria-label="Menu" data-i18n-aria="menuAria">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div id="menuDropdown" class="context-menu hidden">
+          <button id="menuAvatarButton" class="menu-avatar-button" type="button">
+            <span id="menuAvatarPreview" class="avatar-preview" aria-hidden="true"></span>
+            <span id="menuAvatarText" data-i18n="changeAvatar">Change Avatar</span>
+          </button>
+          <label class="menu-toggle-row">
+            <span id="menuSoundLabel" data-i18n="sound">Game SFX</span>
+            <input id="menuSoundToggle" type="checkbox" checked>
+            <i aria-hidden="true"></i>
+          </label>
+          <label class="menu-toggle-row">
+            <span id="menuMusicLabel" data-i18n="music">Music</span>
+            <input id="menuMusicToggle" type="checkbox" checked>
+            <i aria-hidden="true"></i>
+          </label>
+          <label class="menu-toggle-row">
+            <span id="menuAnimationLabel" data-i18n="animations">Animations</span>
+            <input id="menuAnimationToggle" type="checkbox" checked>
+            <i aria-hidden="true"></i>
+          </label>
+          <button id="menuLanguageButton" type="button" data-i18n="language">Language</button>
+          <button id="menuRulesButton" type="button" data-i18n="rules">Rules</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="startRulesPopup" class="start-rules-popup hidden" role="dialog" aria-modal="true" aria-labelledby="quickRulesTitle">
+      <div class="start-rules-card panel">
+        <div class="start-rules-heading">
+          <p id="quickRulesTitle" data-i18n="quickRulesTitle">How to play</p>
+        </div>
+        <ol class="quick-rules-list">
+          <li>
+            <b>1</b>
+            <div class="quick-rule-visual quick-bet-visual" aria-hidden="true">
+              <div class="quick-ball-row"><i></i><i></i><i></i></div>
+              <div class="quick-bet-preview">
+                <span data-i18n="bet">BET</span>
+                <strong>1.00 USD</strong>
+              </div>
+            </div>
+            <div class="quick-rule-copy">
+              <h3 data-i18n="quickRuleOneTitle">Place one stake</h3>
+              <p data-i18n="quickRuleOneText">Choose balls and lines.</p>
+            </div>
+          </li>
+          <li>
+            <b>2</b>
+            <div class="quick-rule-visual quick-cells-visual" aria-hidden="true">
+              <div class="quick-open-cell quick-multiplier-cell">
+                <span>1.50x</span>
+                <i class="quick-white-ball"></i>
+              </div>
+              <div class="quick-open-cell quick-red-cell">
+                <i class="quick-red-pocket"></i>
+              </div>
+            </div>
+            <div class="quick-rule-copy">
+              <h3 data-i18n="quickRuleTwoTitle">Open cells</h3>
+              <p data-i18n="quickRuleTwoText">Multiplier = win. Red pocket = loss.</p>
+            </div>
+          </li>
+          <li>
+            <b>3</b>
+            <div class="quick-rule-visual quick-bonus-visual" aria-hidden="true">
+              <div class="quick-diamond-preview">
+                <div class="quick-diamond-row"><i></i><i></i><i></i></div>
+                <strong>x10</strong>
+              </div>
+              <div class="quick-pocket-preview">
+                <i class="quick-blue-pocket"></i>
+                <div class="quick-pocket-balls"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="quick-rule-copy">
+              <h3 data-i18n="quickRuleBonusTitle">Find bonuses</h3>
+              <p data-i18n="quickRuleBonusText">3 diamonds = x10. Blue pocket = 3 balls.</p>
+            </div>
+          </li>
+          <li>
+            <b>4</b>
+            <div class="quick-rule-visual quick-choice-visual" aria-hidden="true">
+              <div class="quick-cashout-preview">
+                <span data-i18n="cashOut">CASH OUT</span>
+                <strong>2.50 USD</strong>
+              </div>
+              <div class="quick-risk-preview">
+                <span data-i18n="continueRisk">RISK AGAIN</span>
+                <small data-i18n="freeContinuation">FREE</small>
+              </div>
+            </div>
+            <div class="quick-rule-copy">
+              <h3 data-i18n="quickRuleThreeTitle">Cash out or risk</h3>
+              <p data-i18n="quickRuleThreeText">Take the win or shoot again for free.</p>
+            </div>
+          </li>
+        </ol>
+        <button id="startRulesButton" class="start-rules-button" type="button" data-i18n="startGame">START</button>
+      </div>
+    </div>
+
+    <section id="rulesScreen" class="rules-screen hidden">
+      <div class="rules-card panel">
+        <div class="rules-header">
+          <div>
+            <h2 class="rules-game-logo" aria-label="Balloro Treasure"><span class="brand-ball">Balloro&nbsp;</span><span class="brand-treasure">Treasure</span></h2>
+            <p class="eyebrow" data-i18n="gameRules">Game Rules</p>
+          </div>
+          <button id="closeRulesButton" class="icon-button" type="button" aria-label="Back" data-i18n-aria="back">×</button>
+        </div>
+        <div class="rules-body">
+          <div class="rules-grid">
+            <article class="rule-card">
+              <div class="rule-art puck-rule-art" aria-hidden="true"><i></i></div>
+              <h3 data-i18n="ruleLaunchTitle">Start a round</h3>
+              <p data-i18n="ruleLaunchText">Choose 1–3 balls and 5–10 lines. The green button shows the total stake. Only the first shot on a field is paid.</p>
+            </article>
+            <article class="rule-card">
+              <div class="rule-art loot-art" aria-hidden="true">5x</div>
+              <h3 data-i18n="ruleWinsTitle">Open cells</h3>
+              <p data-i18n="ruleWinsText">A closed green cell can reveal nothing, a multiplier, a diamond, a blue pocket or a red pocket. Balls may return to opened cells.</p>
+            </article>
+            <article class="rule-card">
+              <div class="rule-art treasure-cashout-rule-art" aria-hidden="true">$</div>
+              <h3 data-i18n="treasureCashoutTitle">Cash out or risk</h3>
+              <p data-i18n="treasureCashoutText">After a safe shot, take the displayed amount or continue free on the same field. A red pocket loses the current round.</p>
+            </article>
+            <article class="rule-card">
+              <div class="rule-art pocket-rule-art" aria-hidden="true"><i></i></div>
+              <h3 data-i18n="rulePocketTitle">Pocket</h3>
+              <p data-i18n="rulePocketFieldText">A hidden blue pocket opens when a ball stops on it, pulls the ball to the centre and releases three free white balls.</p>
+            </article>
+            <article class="rule-card">
+              <div class="rule-art boost-art" aria-hidden="true">
+                <svg class="rule-boost-diamond" viewBox="0 0 100 100">
+                  <path class="boost-diamond-outer" d="M9 35L28 9H72L91 35L50 91Z"/>
+                  <path class="boost-diamond-body" d="M11 35L29 12H71L89 35L50 87Z"/>
+                  <path class="boost-diamond-facets" d="M11 35H89M29 12L50 35L71 12M11 35L50 87L89 35"/>
+                </svg>
+              </div>
+              <h3 data-i18n="ruleBoostTitle">x10 BOOST</h3>
+              <p data-i18n="ruleBoostText">Collect three diamonds. Field multipliers become x10. Multipliers collected before the bonus keep their original value.</p>
+            </article>
+            <article class="rule-card">
+              <div class="rule-art field-rule-art" aria-hidden="true">5–10</div>
+              <h3 data-i18n="ruleFieldTitle">Lines and risk</h3>
+              <p data-i18n="ruleFieldText">More lines make cells smaller and increase available multiplier values. Volatility and possible rewards rise.</p>
+            </article>
+            <article class="rule-card treasure-auto-rule">
+              <div class="rule-art auto-rule-art" aria-hidden="true">AUTO</div>
+              <h3 data-i18n="ruleAutoTitle">Autoplay</h3>
+              <p data-i18n="ruleAutoText">Autoplay starts new paid rounds with the selected stake and ball count until you switch it off.</p>
+            </article>
+          </div>
+          <section class="rules-paytable" aria-labelledby="rulesPaytableTitle">
+            <h3 id="rulesPaytableTitle" data-i18n="paytableTitle">Multiplier table</h3>
+            <div class="rules-paytable-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="paytableLineLabel">Lines</th>
+                    <th data-i18n="paytableBaseLabel">Base cells</th>
+                    <th>x10 BOOST</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th>5</th><td>1.20x · 1.50x · 2.50x</td><td>12x · 15x · 25x</td></tr>
+                  <tr><th>6</th><td>1.20x · 1.80x · 3x</td><td>12x · 18x · 30x</td></tr>
+                  <tr><th>7</th><td>1.30x · 2x · 4x</td><td>13x · 20x · 40x</td></tr>
+                  <tr><th>8</th><td>1.40x · 2.50x · 6x</td><td>14x · 25x · 60x</td></tr>
+                  <tr><th>9</th><td>1.50x · 3x · 10x</td><td>15x · 30x · 100x</td></tr>
+                  <tr><th>10</th><td>1.60x · 4x · 10x</td><td>16x · 40x · 100x</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="rules-about" aria-labelledby="rulesAboutTitle">
+            <h3 id="rulesAboutTitle" data-i18n="rulesAboutTitle">PLAYER INFORMATION</h3>
+            <div class="rules-about-block">
+              <h4 data-i18n="rulesHowToWinTitle">How wins are paid</h4>
+              <p data-i18n="rulesHowToWinText">The total stake is multiplied sequentially by every multiplier collected in the round. Example: 300 USD × 1.20x × 1.50x = 540 USD.</p>
+            </div>
+            <div class="rules-about-block">
+              <h4 data-i18n="rulesRtpTitle">RTP</h4>
+              <p data-i18n="rulesRtpText">The theoretical RTP is 97.45%. RTP is the long-term average return calculated across a very large number of rounds; it does not guarantee the result of a specific bet, session or player. RTP formula: total payouts ÷ total stakes × 100%.</p>
+            </div>
+            <div class="rules-about-block">
+              <h4 data-i18n="rulesMaxWinTitle">Maximum payout</h4>
+              <p data-i18n="rulesMaxWinText">The maximum multiplier in one cell is 100x after x10. The round cashout has no fixed cap because every collected multiplier is applied sequentially.</p>
+            </div>
+            <div class="rules-about-block">
+              <h4 data-i18n="rulesDisclosureTitle">Responsible play</h4>
+              <p data-i18n="rulesDisclosureText">18+. Gambling can cause addiction. Play responsibly.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <div id="languagePopup" class="language-popup hidden">
+      <div class="language-card panel">
+        <div class="language-header">
+          <h2 id="languageTitle" data-i18n="language">Language</h2>
+          <button id="closeLanguageButton" class="icon-button" type="button" aria-label="Close" data-i18n-aria="close">×</button>
+        </div>
+        <div class="language-options">
+          <button type="button" data-lang="en">English</button>
+          <button type="button" data-lang="ru">Русский</button>
+          <button type="button" data-lang="es">Español</button>
+          <button type="button" data-lang="pt">Português</button>
+          <button type="button" data-lang="de">Deutsch</button>
+          <button type="button" data-lang="fr">Français</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="avatarPopup" class="avatar-popup hidden">
+      <div class="avatar-card panel">
+        <div class="avatar-header">
+          <h2 id="avatarTitle" data-i18n="changeAvatar">Change Avatar</h2>
+          <button id="closeAvatarButton" class="icon-button" type="button" aria-label="Close" data-i18n-aria="close">×</button>
+        </div>
+        <div id="avatarGrid" class="avatar-grid" aria-label="Choose avatar"></div>
+      </div>
+    </div>
+
+    <div id="topUpPopup" class="top-up-popup hidden">
+      <div class="top-up-card panel">
+        <h2 id="topUpTitle" data-i18n="topUpTitle">Top Up Balance</h2>
+        <p id="topUpText" data-i18n="topUpText">Add any amount to continue playing.</p>
+        <label class="top-up-field" for="topUpAmount">
+          <span id="topUpAmountLabel" data-i18n="amount">Amount</span>
+          <input id="topUpAmount" type="number" min="0.01" step="0.01" value="1000">
+        </label>
+        <div class="top-up-actions">
+          <button id="confirmTopUpButton" class="top-up-confirm" type="button" data-i18n="topUp">TOP UP</button>
+          <button id="cancelTopUpButton" class="top-up-cancel" type="button" data-i18n="cancel">CANCEL</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="gameScreen" class="game-screen" aria-live="polite">
+      <section id="historyPanel" class="loot-log-panel panel">
+        <div class="loot-log-row">
+          <span class="loot-log-label" data-i18n="totalHistory">TOTAL HISTORY:</span>
+          <span class="history-title" data-i18n="roundHistory">Round History</span>
+          <div id="rewardHistory" class="reward-history" aria-label="Recent rewards" data-i18n-aria="recentRewards"></div>
+          <button id="historyToggle" class="history-toggle" type="button" aria-label="Expand history" data-i18n-aria="expandHistory" aria-expanded="false"></button>
+        </div>
+      </section>
+
+      <section class="mine-stage panel">
+        <canvas id="mineCanvas" width="960" height="600" aria-label="Top-down Balloro Treasure diamond field" data-i18n-aria="fieldLabel"></canvas>
+        <canvas id="treasureConfettiCanvas" width="960" height="600" aria-hidden="true"></canvas>
+        <div id="counterFlyInLayer" class="counter-flyin-layer" aria-hidden="true"></div>
+        <button id="layoutModeButton" class="layout-mode-button hidden" type="button" title="Layout: Dynamic Diagonal Width" aria-label="Switch multiplier layout">
+          <span>DIA</span>
+        </button>
+        <aside id="layoutDevPanel" class="layout-dev-panel hidden" aria-label="Layout gameplay tester">
+          <div class="layout-dev-title"><strong>LAYOUT TEST</strong><button id="closeLayoutDevPanel" type="button" aria-label="Close">×</button></div>
+          <label><input id="lockTestLines" type="checkbox" checked> Lock lines</label>
+          <label><input id="lockTestPucks" type="checkbox" checked> Lock pucks</label>
+          <div class="layout-dev-actions">
+            <button id="runLayoutTest100" type="button">100</button>
+            <button id="runLayoutTest1000" type="button">1,000</button>
+            <button id="exportLayoutTest" type="button">CSV</button>
+          </div>
+          <output id="layoutTestStatus">Ctrl+Shift+D</output>
+        </aside>
+        <div id="stageMultiplier" class="stage-multiplier hidden">
+          <b id="currentLoot">1.00x</b>
+        </div>
+        <button id="roundWinLabel" class="round-win-label hidden" type="button" aria-live="polite"></button>
+        <div id="treasureWinFlyIn" class="treasure-win-flyin hidden" aria-hidden="true"></div>
+        <div class="crown-bonus-counter" aria-label="Diamond boost counter" data-i18n-aria="diamondCounter">
+          <div id="crownCounter" class="crown-counter" aria-hidden="true">
+            <span><svg class="boost-diamond" viewBox="0 0 100 100"><path class="boost-diamond-outer" d="M9 35L28 9H72L91 35L50 91Z"/><path class="boost-diamond-body" d="M11 35L29 12H71L89 35L50 87Z"/><path class="boost-diamond-facets" d="M11 35H89M29 12L50 35L71 12M11 35L50 87L89 35"/></svg></span>
+            <span><svg class="boost-diamond" viewBox="0 0 100 100"><path class="boost-diamond-outer" d="M9 35L28 9H72L91 35L50 91Z"/><path class="boost-diamond-body" d="M11 35L29 12H71L89 35L50 87Z"/><path class="boost-diamond-facets" d="M11 35H89M29 12L50 35L71 12M11 35L50 87L89 35"/></svg></span>
+            <span><svg class="boost-diamond" viewBox="0 0 100 100"><path class="boost-diamond-outer" d="M9 35L28 9H72L91 35L50 91Z"/><path class="boost-diamond-body" d="M11 35L29 12H71L89 35L50 87Z"/><path class="boost-diamond-facets" d="M11 35H89M29 12L50 35L71 12M11 35L50 87L89 35"/></svg></span>
+          </div>
+          <strong><span>x10</span><span>BOOST</span></strong>
+        </div>
+        <div id="multiPlusCounter" class="multi-plus-counter" aria-label="Extra multipliers bonus">
+          <span class="multi-plus-icon" aria-hidden="true">
+            <svg class="multi-plus-star" viewBox="0 0 100 100">
+              <path class="multi-plus-star-body" d="M47.6 17.58Q50 12 52.4 17.58L59.17 33.29Q60.27 35.86 63.06 36.12L80.09 37.7Q86.14 38.26 81.57 42.27L68.73 53.56Q66.62 55.4 67.24 58.13L71 74.81Q72.34 80.74 67.11 77.64L52.4 68.91Q50 67.48 47.6 68.91L32.89 77.64Q27.66 80.74 29 74.81L32.76 58.13Q33.38 55.4 31.27 53.56L18.43 42.27Q13.86 38.26 19.91 37.7L36.94 36.12Q39.73 35.86 40.83 33.29Z"/>
+            </svg>
+          </span>
+          <strong><span>EX</span><span>MULTI</span></strong>
+        </div>
+        <aside class="purple-leaderboard" tabindex="0" aria-label="Today top wins" aria-expanded="false">
+          <div class="purple-leaderboard-title">
+            <span><i aria-hidden="true"></i> <b data-i18n="todayTopWins">TODAY TOP WINS</b></span>
+            <button id="purpleLeaderboardToggle" class="purple-leaderboard-toggle" type="button" aria-label="Show full today top wins" aria-expanded="false">⌄</button>
+          </div>
+          <ol id="purpleLeaderboard"></ol>
+        </aside>
+        <div id="rewardPopup" class="reward-popup hidden"></div>
+        <div id="warningBanner" class="warning-banner hidden"></div>
+        <pre id="physicsDebug" class="physics-debug hidden" aria-live="polite"></pre>
+      </section>
+
+      <section class="bet-panel panel">
+        <div class="bet-slots">
+          <article class="bet-slot" data-slot="0">
+            <div class="bet-side-controls">
+              <button id="autoPlayToggle" class="auto-play-toggle" type="button" aria-pressed="false">
+                <span data-i18n="auto">AUTO</span>
+                <i aria-hidden="true"></i>
+              </button>
+              <div class="auto-cashout-control">
+                <span data-i18n="autoCashout">AUTO CASHOUT</span>
+                <div class="auto-cashout-stepper">
+                  <button id="decreaseAutoCashout" type="button" aria-label="Decrease auto cashout multiplier" data-i18n-aria="decreaseAutoCashout">‹</button>
+                  <label>
+                    <input id="autoCashoutValue" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" autocomplete="off" value="2.00" aria-label="Auto cashout multiplier" data-i18n-aria="autoCashoutValue">
+                    <b aria-hidden="true">x</b>
+                  </label>
+                  <button id="increaseAutoCashout" type="button" aria-label="Increase auto cashout multiplier" data-i18n-aria="increaseAutoCashout">›</button>
+                </div>
+              </div>
+            </div>
+            <button class="bet-action" type="button">
+              <span data-i18n="bet">BET</span>
+              <small>1.00 USD</small>
+            </button>
+            <div class="bet-right-controls">
+              <div class="puck-count-control" aria-label="Puck count" data-i18n-aria="puckCount">
+                <span data-i18n="pucks">BALLS</span>
+                <div class="puck-count-buttons">
+                  <button class="puck-count-button active" type="button" data-puck-count="1">1</button>
+                  <button class="puck-count-button" type="button" data-puck-count="2">2</button>
+                  <button class="puck-count-button" type="button" data-puck-count="3">3</button>
+                </div>
+              </div>
+              <div class="bet-box">
+                <button class="bet-round-button decrease-bet" type="button" aria-label="Decrease bet" data-i18n-aria="decreaseBet">−</button>
+                <input class="bet-value" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" autocomplete="off" value="1.00" max="100" aria-label="Bet amount" data-i18n-aria="betAmount">
+                <button class="bet-round-button increase-bet" type="button" aria-label="Increase bet" data-i18n-aria="increaseBet">+</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="field-options" aria-label="Field options" data-i18n-aria="fieldOptions">
+          <div class="field-option">
+            <span data-i18n="lines">LINES</span>
+            <div class="segmented-control lines-control" data-control="lines">
+              <button class="active" type="button" data-grid-size="5">5</button>
+              <button type="button" data-grid-size="6">6</button>
+              <button type="button" data-grid-size="7">7</button>
+              <button type="button" data-grid-size="8">8</button>
+              <button type="button" data-grid-size="9">9</button>
+              <button type="button" data-grid-size="10">10</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="math/field-configuration-1.js?v=20260715-13"></script>
+  <script src="math/field-configuration-2.js?v=20260715-13"></script>
+  <script src="math/field-configuration-3.js?v=20260715-13"></script>
+  <script src="math/field-configuration-4.js?v=20260716-17"></script>
+  <script src="math/field-configuration-5.js?v=20260716-18"></script>
+  <script src="math/puck-luck-layout-modes.js?v=20260716-19"></script>
+  <script src="math/trajectory-planner.js?v=20260717-2"></script>
+  <script src="math/trajectory-library-standard.js"></script>
+  <script src="math/secret-room-trajectories.js"></script>
+  <script src="math/layout-gameplay-test.js"></script>
+  <script src="math/balloro-treasure-math.js?v=20260723-4"></script>
+  <script src="script.js?v=20260723-23"></script>
+</body>
+</html>

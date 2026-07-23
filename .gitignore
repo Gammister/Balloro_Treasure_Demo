@@ -1,0 +1,4 @@
+.DS_Store
+*.log
+work/
+MathOutput/puck_luck_trajectory_library.json

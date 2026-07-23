@@ -1,0 +1,2000 @@
+[
+  {
+    "id": "low-5-1",
+    "risk": "low",
+    "lines": 5,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.36167902615278724,
+      "outer": 0.351076535615967,
+      "middle": 0.22341234084652445,
+      "center": 0.06383209738472127
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.63832097,
+    "bonus_frequency": 0.0056328984618976745,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-5-2",
+    "risk": "low",
+    "lines": 5,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.62,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3588815789473683,
+      "outer": 0.35261513157894747,
+      "middle": 0.2243914473684211,
+      "center": 0.06411184210526318
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.87120401,
+    "bonus_frequency": 0.00584795321637427,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-5-3",
+    "risk": "low",
+    "lines": 5,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.62,
+      "center": 2.16
+    },
+    "outcome_probabilities": {
+      "empty": 0.35961910949410947,
+      "outer": 0.35220948977823985,
+      "middle": 0.22413331167706166,
+      "center": 0.06403808905058905
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.95349193,
+    "bonus_frequency": 0.006063801740047455,
+    "max_win": 21.6,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-6-1",
+    "risk": "low",
+    "lines": 6,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3612104521881827,
+      "outer": 0.35133425129649953,
+      "middle": 0.22357634173413604,
+      "center": 0.06387895478118173
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.63878955,
+    "bonus_frequency": 0.005547262741030236,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-6-2",
+    "risk": "low",
+    "lines": 6,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3599443650599512,
+      "outer": 0.3520305992170269,
+      "middle": 0.22401947222901705,
+      "center": 0.06400556349400488
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.87044005,
+    "bonus_frequency": 0.005758886786873124,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-6-3",
+    "risk": "low",
+    "lines": 6,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.62,
+      "center": 2.16
+    },
+    "outcome_probabilities": {
+      "empty": 0.3591130629377195,
+      "outer": 0.35248781538425433,
+      "middle": 0.22431042797179815,
+      "center": 0.06408869370622805
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.95368799,
+    "bonus_frequency": 0.005971280020981953,
+    "max_win": 21.6,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-7-1",
+    "risk": "low",
+    "lines": 7,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3608195758699665,
+      "outer": 0.35154923327151844,
+      "middle": 0.2237131484455117,
+      "center": 0.06391804241300335
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.63918042,
+    "bonus_frequency": 0.005475922953485142,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-7-2",
+    "risk": "low",
+    "lines": 7,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.35953777281828514,
+      "outer": 0.3522542249499432,
+      "middle": 0.2241617795136002,
+      "center": 0.0640462227181715
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.87073259,
+    "bonus_frequency": 0.005684692818185934,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-7-3",
+    "risk": "low",
+    "lines": 7,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.62,
+      "center": 2.16
+    },
+    "outcome_probabilities": {
+      "empty": 0.35869092762985033,
+      "outer": 0.3527199898035823,
+      "middle": 0.22445817532955237,
+      "center": 0.06413090723701496
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.95385112,
+    "bonus_frequency": 0.005894211703448371,
+    "max_win": 21.6,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-8-1",
+    "risk": "low",
+    "lines": 8,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3604848578787637,
+      "outer": 0.35173332816667996,
+      "middle": 0.22383029974243268,
+      "center": 0.06395151421212363
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.63951514,
+    "bonus_frequency": 0.005414902071770065,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-8-2",
+    "risk": "low",
+    "lines": 8,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.36161523843671217,
+      "outer": 0.35111161885980835,
+      "middle": 0.22343466654715072,
+      "center": 0.06383847615632879
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.86923442,
+    "bonus_frequency": 0.005621233343642236,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-8-3",
+    "risk": "low",
+    "lines": 8,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.62,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.35877381191083246,
+      "outer": 0.35267440344904216,
+      "middle": 0.22442916583120862,
+      "center": 0.06412261880891676
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.95381912,
+    "bonus_frequency": 0.005828296608467843,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-9-1",
+    "risk": "low",
+    "lines": 9,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.36019256907202246,
+      "outer": 0.35189408701038766,
+      "middle": 0.22393260082479213,
+      "center": 0.06398074309279776
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.63980743,
+    "bonus_frequency": 0.005361668477252175,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-9-2",
+    "risk": "low",
+    "lines": 9,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3613123484815397,
+      "outer": 0.3512782083351532,
+      "middle": 0.22354067803146108,
+      "center": 0.06386876515184603
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.86945339,
+    "bonus_frequency": 0.0055658744299463036,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-9-3",
+    "risk": "low",
+    "lines": 9,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3600095902077417,
+      "outer": 0.3519947253857421,
+      "middle": 0.2239966434272904,
+      "center": 0.06399904097922583
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.95334027,
+    "bonus_frequency": 0.005770797688612488,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-10-1",
+    "risk": "low",
+    "lines": 10,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.18
+    },
+    "outcome_probabilities": {
+      "empty": 0.360373642212806,
+      "outer": 0.3517944967829567,
+      "middle": 0.2238692252255179,
+      "center": 0.0639626357787194
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.63962636,
+    "bonus_frequency": 0.0053145132434287345,
+    "max_win": 21.8,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-10-2",
+    "risk": "low",
+    "lines": 10,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.21,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.36104381200048496,
+      "outer": 0.3514259033997333,
+      "middle": 0.22363466579983024,
+      "center": 0.06389561879995151
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.86964737,
+    "bonus_frequency": 0.0055168381615671065,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "low-10-3",
+    "risk": "low",
+    "lines": 10,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.2,
+      "middle": 1.63,
+      "center": 2.17
+    },
+    "outcome_probabilities": {
+      "empty": 0.3597305988918752,
+      "outer": 0.3521481706094687,
+      "middle": 0.22409429038784368,
+      "center": 0.06402694011081249
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.95344866,
+    "bonus_frequency": 0.005719867505972814,
+    "max_win": 21.7,
+    "volatility": "LOW"
+  },
+  {
+    "id": "normal-5-1",
+    "risk": "normal",
+    "lines": 5,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.48
+    },
+    "outcome_probabilities": {
+      "empty": 0.5799969174723273,
+      "outer": 0.2016014796132829,
+      "middle": 0.1554011405352389,
+      "center": 0.0630004623791509
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.42000308,
+    "bonus_frequency": 0.009295381206954681,
+    "max_win": 44.8,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-5-2",
+    "risk": "normal",
+    "lines": 5,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.47
+    },
+    "outcome_probabilities": {
+      "empty": 0.5802518844515192,
+      "outer": 0.20147909546327078,
+      "middle": 0.1553068027529379,
+      "center": 0.06296221733227211
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.66330775,
+    "bonus_frequency": 0.00966183574879227,
+    "max_win": 44.7,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-5-3",
+    "risk": "normal",
+    "lines": 5,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.27,
+      "middle": 2.29,
+      "center": 4.46
+    },
+    "outcome_probabilities": {
+      "empty": 0.5795609388964673,
+      "outer": 0.20181074932969564,
+      "middle": 0.15556245260830706,
+      "center": 0.0630658591655299
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.80533077,
+    "bonus_frequency": 0.01003052769297863,
+    "max_win": 44.6,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-6-1",
+    "risk": "normal",
+    "lines": 6,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.49
+    },
+    "outcome_probabilities": {
+      "empty": 0.5797825348861604,
+      "outer": 0.20170438325464302,
+      "middle": 0.15548046209212066,
+      "center": 0.06303261976707594
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.42021747,
+    "bonus_frequency": 0.009149701702103937,
+    "max_win": 44.9,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-6-2",
+    "risk": "normal",
+    "lines": 6,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.48
+    },
+    "outcome_probabilities": {
+      "empty": 0.5800183164025672,
+      "outer": 0.20159120812676776,
+      "middle": 0.15539322293105015,
+      "center": 0.06299725253961493
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.66357875,
+    "bonus_frequency": 0.009509959470669418,
+    "max_win": 44.8,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-6-3",
+    "risk": "normal",
+    "lines": 6,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.46
+    },
+    "outcome_probabilities": {
+      "empty": 0.580687893417638,
+      "outer": 0.2012698111595337,
+      "middle": 0.1551454794354739,
+      "center": 0.06289681598735428
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999998,
+    "hit_frequency": 0.80419295,
+    "bonus_frequency": 0.009872382127625342,
+    "max_win": 44.6,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-7-1",
+    "risk": "normal",
+    "lines": 7,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.49
+    },
+    "outcome_probabilities": {
+      "empty": 0.5793584196688595,
+      "outer": 0.20190795855894747,
+      "middle": 0.155637384722522,
+      "center": 0.06309623704967109
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.42064158,
+    "bonus_frequency": 0.009028447781559706,
+    "max_win": 44.9,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-7-2",
+    "risk": "normal",
+    "lines": 7,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.48
+    },
+    "outcome_probabilities": {
+      "empty": 0.5795777495308078,
+      "outer": 0.20180268022521228,
+      "middle": 0.15555623267360114,
+      "center": 0.06306333757037884
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.66408963,
+    "bonus_frequency": 0.00938355881591059,
+    "max_win": 44.8,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-7-3",
+    "risk": "normal",
+    "lines": 7,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.47
+    },
+    "outcome_probabilities": {
+      "empty": 0.5805260610102527,
+      "outer": 0.2013474907150787,
+      "middle": 0.1552053574262065,
+      "center": 0.06292109084846209
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999998,
+    "hit_frequency": 0.80435662,
+    "bonus_frequency": 0.009740775363105124,
+    "max_win": 44.7,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-8-1",
+    "risk": "normal",
+    "lines": 8,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.29,
+      "middle": 2.31,
+      "center": 4.5
+    },
+    "outcome_probabilities": {
+      "empty": 0.5802295116555215,
+      "outer": 0.20148983440534968,
+      "middle": 0.15531508068745703,
+      "center": 0.06296557325167178
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.41977049,
+    "bonus_frequency": 0.008924808933300747,
+    "max_win": 45,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-8-2",
+    "risk": "normal",
+    "lines": 8,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.49
+    },
+    "outcome_probabilities": {
+      "empty": 0.5802217428907255,
+      "outer": 0.20149356341245173,
+      "middle": 0.15531795513043156,
+      "center": 0.06296673856639116
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.66334273,
+    "bonus_frequency": 0.009275528875685547,
+    "max_win": 44.9,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-8-3",
+    "risk": "normal",
+    "lines": 8,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.47
+    },
+    "outcome_probabilities": {
+      "empty": 0.5801353130009772,
+      "outer": 0.20153504975953096,
+      "middle": 0.15534993418963847,
+      "center": 0.06297970304985342
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.80475141,
+    "bonus_frequency": 0.009628304284876292,
+    "max_win": 44.7,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-9-1",
+    "risk": "normal",
+    "lines": 9,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.29,
+      "middle": 2.32,
+      "center": 4.5
+    },
+    "outcome_probabilities": {
+      "empty": 0.5806353640149762,
+      "outer": 0.2012950252728114,
+      "middle": 0.1551649153144588,
+      "center": 0.06290469539775356
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.41936464,
+    "bonus_frequency": 0.008834453584614712,
+    "max_win": 45,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-9-2",
+    "risk": "normal",
+    "lines": 9,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.49
+    },
+    "outcome_probabilities": {
+      "empty": 0.5798930961214804,
+      "outer": 0.20165131386168939,
+      "middle": 0.15543955443505222,
+      "center": 0.06301603558177793
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.663724,
+    "bonus_frequency": 0.009181351227266352,
+    "max_win": 44.9,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-9-3",
+    "risk": "normal",
+    "lines": 9,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.48
+    },
+    "outcome_probabilities": {
+      "empty": 0.5800889917287966,
+      "outer": 0.20155728397017764,
+      "middle": 0.15536707306034525,
+      "center": 0.06298665124068051
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.80479818,
+    "bonus_frequency": 0.009530261233056187,
+    "max_win": 44.8,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-10-1",
+    "risk": "normal",
+    "lines": 10,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.29,
+      "middle": 2.32,
+      "center": 4.5
+    },
+    "outcome_probabilities": {
+      "empty": 0.5803554962574895,
+      "outer": 0.20142936179640503,
+      "middle": 0.15526846638472888,
+      "center": 0.06294667556137658
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.4196445,
+    "bonus_frequency": 0.00875445993305369,
+    "max_win": 45,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-10-2",
+    "risk": "normal",
+    "lines": 10,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.31,
+      "center": 4.49
+    },
+    "outcome_probabilities": {
+      "empty": 0.5796017241383027,
+      "outer": 0.2017911724136147,
+      "middle": 0.155547362068828,
+      "center": 0.06305974137925459
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.66406184,
+    "bonus_frequency": 0.009097978256145058,
+    "max_win": 44.9,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "normal-10-3",
+    "risk": "normal",
+    "lines": 10,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 1.28,
+      "middle": 2.3,
+      "center": 4.48
+    },
+    "outcome_probabilities": {
+      "empty": 0.5797866880479007,
+      "outer": 0.20170238973700766,
+      "middle": 0.15547892542227676,
+      "center": 0.06303199679281489
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.8051032,
+    "bonus_frequency": 0.00944347119121159,
+    "max_win": 44.8,
+    "volatility": "MEDIUM"
+  },
+  {
+    "id": "high-5-1",
+    "risk": "high",
+    "lines": 5,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.96,
+      "center": 19.65
+    },
+    "outcome_probabilities": {
+      "empty": 0.7999988016705424,
+      "outer": 0.10000059916472878,
+      "middle": 0.06400038346542643,
+      "center": 0.03600021569930236
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.2000012,
+    "bonus_frequency": 0.01735589213910407,
+    "max_win": 196.5,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-5-2",
+    "risk": "high",
+    "lines": 5,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.95,
+      "center": 19.54
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000405611757969,
+      "outer": 0.09997971941210154,
+      "middle": 0.06398702042374499,
+      "center": 0.03599269898835655
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.3599351,
+    "bonus_frequency": 0.018087855297157625,
+    "max_win": 195.4,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-5-3",
+    "risk": "high",
+    "lines": 5,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.94,
+      "center": 19.42
+    },
+    "outcome_probabilities": {
+      "empty": 0.7999964117703533,
+      "outer": 0.10000179411482335,
+      "middle": 0.06400114823348695,
+      "center": 0.036000645881336404
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.1,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.48800689,
+    "bonus_frequency": 0.018828207227224888,
+    "max_win": 194.2,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-6-1",
+    "risk": "high",
+    "lines": 6,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.97,
+      "center": 19.69
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000399099754777,
+      "outer": 0.09998004501226117,
+      "middle": 0.06398722880784714,
+      "center": 0.03599281620441402
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.19996009,
+    "bonus_frequency": 0.017065981285276154,
+    "max_win": 196.9,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-6-2",
+    "risk": "high",
+    "lines": 6,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.96,
+      "center": 19.58
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000653350123721,
+      "outer": 0.09996733249381398,
+      "middle": 0.06397909279604094,
+      "center": 0.03598823969777303
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.35989546,
+    "bonus_frequency": 0.01778402524925551,
+    "max_win": 195.8,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-6-3",
+    "risk": "high",
+    "lines": 6,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.95,
+      "center": 19.47
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000910399400665,
+      "outer": 0.09995448002996678,
+      "middle": 0.06397086721917875,
+      "center": 0.03598361281078804
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.08333333333333333,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.48782518,
+    "bonus_frequency": 0.018510159453049898,
+    "max_win": 194.7,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-7-1",
+    "risk": "high",
+    "lines": 7,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.97,
+      "center": 19.73
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000043391628555,
+      "outer": 0.09999783041857224,
+      "middle": 0.06399861146788624,
+      "center": 0.03599921895068601
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.19999566,
+    "bonus_frequency": 0.01682514178754101,
+    "max_win": 197.3,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-7-2",
+    "risk": "high",
+    "lines": 7,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.96,
+      "center": 19.62
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000158223798969,
+      "outer": 0.09999208881005156,
+      "middle": 0.063994936838433,
+      "center": 0.03599715197161856
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.35997468,
+    "bonus_frequency": 0.017531666540690674,
+    "max_win": 196.2,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-7-3",
+    "risk": "high",
+    "lines": 7,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.95,
+      "center": 19.51
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000274317921658,
+      "outer": 0.09998628410391708,
+      "middle": 0.06399122182650693,
+      "center": 0.035995062277410145
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.07142857142857142,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.48794733,
+    "bonus_frequency": 0.018246038158469997,
+    "max_win": 195.1,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-8-1",
+    "risk": "high",
+    "lines": 8,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.98,
+      "center": 19.76
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000888113842947,
+      "outer": 0.09995559430785267,
+      "middle": 0.06397158035702571,
+      "center": 0.03598401395082696
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.19991119,
+    "bonus_frequency": 0.016619622587181946,
+    "max_win": 197.6,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-8-2",
+    "risk": "high",
+    "lines": 8,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.97,
+      "center": 19.65
+    },
+    "outcome_probabilities": {
+      "empty": 0.800089020736928,
+      "outer": 0.099955489631536,
+      "middle": 0.06397151336418304,
+      "center": 0.03598397626735296
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745,
+    "hit_frequency": 0.35985756,
+    "bonus_frequency": 0.017316349026513626,
+    "max_win": 196.5,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-8-3",
+    "risk": "high",
+    "lines": 8,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.95,
+      "center": 19.55
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000224842160453,
+      "outer": 0.09998875789197739,
+      "middle": 0.06399280505086553,
+      "center": 0.03599595284111186
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.0625,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999999,
+    "hit_frequency": 0.48795683,
+    "bonus_frequency": 0.018020717950589946,
+    "max_win": 195.5,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-9-1",
+    "risk": "high",
+    "lines": 9,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.98,
+      "center": 19.79
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000629911942665,
+      "outer": 0.09996850440286677,
+      "middle": 0.06397984281783473,
+      "center": 0.035988661585032035
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999998,
+    "hit_frequency": 0.19993701,
+    "bonus_frequency": 0.016440694502312433,
+    "max_win": 197.9,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-9-2",
+    "risk": "high",
+    "lines": 9,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.97,
+      "center": 19.68
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000528461121286,
+      "outer": 0.09997357694393569,
+      "middle": 0.06398308924411884,
+      "center": 0.035990487699816845
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.35991544,
+    "bonus_frequency": 0.017128914035022157,
+    "max_win": 196.8,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-9-3",
+    "risk": "high",
+    "lines": 9,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.96,
+      "center": 19.58
+    },
+    "outcome_probabilities": {
+      "empty": 0.8001282533111141,
+      "outer": 0.09993587334444294,
+      "middle": 0.06395895894044348,
+      "center": 0.03597691440399946
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05555555555555555,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000003,
+    "hit_frequency": 0.48775371,
+    "bonus_frequency": 0.017824600582339232,
+    "max_win": 195.8,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-10-1",
+    "risk": "high",
+    "lines": 10,
+    "pucks": 1,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.98,
+      "center": 19.81
+    },
+    "outcome_probabilities": {
+      "empty": 0.7999842735861006,
+      "outer": 0.1000078632069497,
+      "middle": 0.0640050324524478,
+      "center": 0.03600283075450189
+    },
+    "star_placement": {
+      "count": 1,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.20001573,
+    "bonus_frequency": 0.01628247897391231,
+    "max_win": 198.1,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-10-2",
+    "risk": "high",
+    "lines": 10,
+    "pucks": 2,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.97,
+      "center": 19.71
+    },
+    "outcome_probabilities": {
+      "empty": 0.8000498190111095,
+      "outer": 0.09997509049444525,
+      "middle": 0.06398405791644496,
+      "center": 0.035991032578000286
+    },
+    "star_placement": {
+      "count": 2,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9744999999999998,
+    "hit_frequency": 0.35992029,
+    "bonus_frequency": 0.016963194689204538,
+    "max_win": 197.1,
+    "volatility": "HIGH"
+  },
+  {
+    "id": "high-10-3",
+    "risk": "high",
+    "lines": 10,
+    "pucks": 3,
+    "multiplier_table": {
+      "empty": 0,
+      "outer": 0.1,
+      "middle": 1.96,
+      "center": 19.6
+    },
+    "outcome_probabilities": {
+      "empty": 0.80003046640083,
+      "outer": 0.09998476679958504,
+      "middle": 0.06399025075173442,
+      "center": 0.03599451604785061
+    },
+    "star_placement": {
+      "count": 3,
+      "unique_sectors": true,
+      "exclude_launch_sector": true
+    },
+    "puck_radius": 0.05,
+    "fixed_launch_force": 1250,
+    "launch_angle_range_degrees": [
+      -34,
+      34
+    ],
+    "fixed_timestep": 0.008333333333333333,
+    "minimum_bounces": 4,
+    "target_rtp": 0.9745,
+    "calculated_rtp": 0.9745000000000001,
+    "hit_frequency": 0.4879415,
+    "bonus_frequency": 0.017651224166217512,
+    "max_win": 196,
+    "volatility": "HIGH"
+  }
+]
