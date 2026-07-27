@@ -4,6 +4,13 @@ Balloro Treasure is a browser-based risk game built around a diamond-shaped fiel
 
 This repository contains the playable client, the field-layout editor, the deterministic trajectory library, and the math verification tools. It is a client prototype: production wallet, authentication, certified RNG, event storage, and remote game-server integration are not included.
 
+Public mobile test build:
+
+- Game: `https://gammister.github.io/Balloro_Treasure_Demo/`
+- Field generator: `https://gammister.github.io/Balloro_Treasure_Demo/field-generator.html`
+
+Every push to `main` automatically updates the public test build through GitHub Pages. The hosted field generator is available for visual testing, but saving configurations remains a local-server feature.
+
 ## Run locally
 
 Requirements:

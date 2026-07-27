@@ -3248,11 +3248,27 @@ function drawMainFieldMultiplierLabels(mergedMultiplierCells, bonusGridActive, h
   }
 }
 
-function getTreasureClosedCellPaint(row, col, boosted = false, fillAlpha = 0.98) {
+function isTreasureMultiplierHintCell(cell) {
+  return Boolean(
+    cell?.kind === "multiplier"
+    && Number(cell.baseMultiplier) > 1
+  );
+}
+
+function getTreasureClosedCellPaint(
+  row,
+  col,
+  boosted = false,
+  fillAlpha = 0.98,
+  multiplierHint = false
+) {
+  const hintAlpha = Math.min(fillAlpha, 0.86);
   return {
-    fill: boosted
-      ? `rgba(78, 35, 104, ${fillAlpha})`
-      : `rgba(7, 67, 38, ${fillAlpha})`,
+    fill: multiplierHint
+      ? `rgba(218, 177, 32, ${hintAlpha})`
+      : boosted
+        ? `rgba(78, 35, 104, ${fillAlpha})`
+        : `rgba(7, 67, 38, ${fillAlpha})`,
     stroke: boosted ? "rgba(190, 124, 234, 0.52)" : "rgba(27, 184, 102, 0.24)"
   };
 }
@@ -3352,28 +3368,56 @@ function drawTreasureCellBreakAnimations() {
       x: (points[0].x + points[3].x) / 2,
       y: (points[0].y + points[3].y) / 2
     };
+    const upperRightEdge = {
+      x: (points[0].x + points[1].x) / 2,
+      y: (points[0].y + points[1].y) / 2
+    };
     const lowerRightEdge = {
       x: (points[1].x + points[2].x) / 2,
       y: (points[1].y + points[2].y) / 2
     };
-    const paint = getTreasureClosedCellPaint(cell.row, cell.col, Boolean(cell.revealAnimationBoosted));
+    const lowerLeftEdge = {
+      x: (points[2].x + points[3].x) / 2,
+      y: (points[2].y + points[3].y) / 2
+    };
+    const animationBoosted = Boolean(cell.revealAnimationBoosted);
+    const paint = getTreasureClosedCellPaint(
+      cell.row,
+      cell.col,
+      animationBoosted,
+      0.98,
+      isTreasureMultiplierHintCell(cell)
+    );
     const bounds = points.reduce((result, point) => ({
       minX: Math.min(result.minX, point.x),
       maxX: Math.max(result.maxX, point.x)
     }), { minX: Infinity, maxX: -Infinity });
     const travel = (bounds.maxX - bounds.minX) * 0.56 * eased;
-    const doors = [
-      {
-        points: [upperLeftEdge, lowerRightEdge, points[2], points[3]],
-        offsetX: -travel,
-        offsetY: travel
-      },
-      {
-        points: [points[0], points[1], lowerRightEdge, upperLeftEdge],
-        offsetX: travel,
-        offsetY: -travel
-      }
-    ];
+    const doors = cell.revealAnimationMirrored
+      ? [
+          {
+            points: [upperRightEdge, points[1], points[2], lowerLeftEdge],
+            offsetX: travel,
+            offsetY: travel
+          },
+          {
+            points: [points[0], upperRightEdge, lowerLeftEdge, points[3]],
+            offsetX: -travel,
+            offsetY: -travel
+          }
+        ]
+      : [
+          {
+            points: [upperLeftEdge, lowerRightEdge, points[2], points[3]],
+            offsetX: -travel,
+            offsetY: travel
+          },
+          {
+            points: [points[0], points[1], lowerRightEdge, upperLeftEdge],
+            offsetX: travel,
+            offsetY: -travel
+          }
+        ];
     ctx.save();
     tracePolygon(points);
     ctx.clip();
@@ -3460,7 +3504,8 @@ function drawTreasureField() {
           row,
           col,
           bonusGridActive,
-          revealHiddenField ? 0.5 : 0.98
+          revealHiddenField ? 0.5 : 0.98,
+          isTreasureMultiplierHintCell(cell)
         );
         drawCell(col, row, paint.fill, paint.stroke);
         continue;
@@ -7828,6 +7873,7 @@ function revealTreasureCellForPuck(puck) {
   if (cell && !wasOpened) {
     cell.revealAnimationStartedAt = state.animationsEnabled ? performance.now() : null;
     cell.revealAnimationBoosted = revealAnimationBoosted;
+    cell.revealAnimationMirrored = randomBetween(0, 1) < 0.5;
     startTreasureCellBreakAnimation();
   }
 
