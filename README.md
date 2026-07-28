@@ -7,9 +7,8 @@ This repository contains the playable client, the field-layout editor, the deter
 Public mobile test build:
 
 - Game: `https://gammister.github.io/Balloro_Treasure_Demo/`
-- Field generator: `https://gammister.github.io/Balloro_Treasure_Demo/field-generator.html`
 
-Every push to `main` automatically updates the public test build through GitHub Pages. The hosted field generator is available for visual testing, but saving configurations remains a local-server feature.
+Every push to `main` automatically updates the public test build through GitHub Pages.
 
 ## Run locally
 
@@ -45,14 +44,15 @@ Balloro Treasure has its own service, deployment directory, and port. Port `8767
 
 1. The player chooses the total stake, number of balls, and 5–10 field lines.
 2. The first shot is paid and creates a shuffled hidden board.
-3. A safe landing may reveal an empty cell, a multiplier, a diamond, or the blue bonus pocket.
+3. A dark-green cell keeps its ball and reveals a multiplier, a diamond, or the blue bonus pocket.
 4. Every collected multiplier is applied sequentially to the current cashout value. For example, `300 × 1.20 × 1.50 = 540`.
 5. After a safe shot, the player can cash out or launch another shot for free without resetting the board.
-6. A red pocket ends the round and removes the cashout.
-7. Three collected diamonds activate x10 BOOST. Multipliers already credited before activation are unchanged; multipliers under cells and multipliers collected from the activating shot onward use their boosted values.
-8. The blue pocket captures a ball and releases three balls after its preparation animation.
+6. A black cell removes only the ball that stops on it. The round ends when no balls remain.
+7. A free continuation launches exactly the number of balls that survived the previous shot.
+8. Three collected diamonds activate x10 BOOST. Multipliers already credited before activation are unchanged; multipliers under cells and multipliers collected from the activating shot onward use their boosted values.
+9. The blue pocket captures a ball and releases three balls after its preparation animation.
 
-The theoretical target RTP is `97.45%` for every line count. The maximum stake is `100 USD`, and the highest multiplier shown in one boosted cell is `100x`.
+The cashout value is the accumulated multiplier multiplied by the surviving share of the selected balls. This preserves the theoretical target RTP of `97.45%` for every line count while making additional balls genuine extra survival chances. The maximum stake is `100 USD`, and the highest multiplier shown in one boosted cell is `100x`.
 
 ## Project structure
 
@@ -91,7 +91,6 @@ Run the focused checks after gameplay, field, or math changes:
 ```sh
 node math/test-balloro-treasure.js
 node math/test-trajectories.js
-node math/test-field-generator.js
 node math/test-math.js
 node math/test-math-v2.js
 ```
@@ -106,8 +105,8 @@ Before handing off a build:
 
 1. Run the focused checks.
 2. Run `zsh sync-balloro-server.sh`.
-3. Verify both local URLs respond.
-4. Test one paid shot, a free continuation, cashout, a red-pocket loss, a diamond pickup, and the blue-pocket release.
+3. Verify the local game URL responds.
+4. Test a mixed shot with surviving and faded balls, a free continuation with the survivor count, cashout, a final black-cell loss, a diamond pickup, and the blue-pocket release.
 5. Confirm the browser console has no uncaught errors or missing assets.
 
 ## Math and trajectory workflow
@@ -115,9 +114,8 @@ Before handing off a build:
 - Do not edit the generated trajectory library by hand.
 - Regenerate trajectories with `node math/build-trajectories.js`, then run `node math/test-trajectories.js`.
 - Keep displayed multipliers and the authoritative values in `math/balloro-treasure-math.js` synchronized.
-- Any change to board contents, selection weights, multiplier values, x10 behavior, or red-pocket frequency requires both unit tests and a new RTP simulation.
+- Any change to board contents, selection weights, multiplier values, x10 behavior, or black-cell frequency requires both unit tests and a new RTP simulation.
 - Visual-only changes must not alter field coordinates, target cells, collision geometry, or trajectory descriptors.
-- The local generator store is developer state. Do not overwrite it during deployment.
 
 ## Production integration
 

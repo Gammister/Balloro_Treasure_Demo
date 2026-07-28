@@ -35,8 +35,6 @@ const COLLECTIBLE_IDLE_FRAME_INTERVAL_MS = 50;
 const COUNTER_FLY_IN_DURATION_MS = 360;
 const RESULT_BOOST_REVEAL_DURATION_MS = 240;
 const TREASURE_DIAMOND_FLIGHT_DELAY_MS = 500;
-const TREASURE_RED_POCKET_REVEAL_HOLD_SECONDS = 0.16;
-const TREASURE_RED_POCKET_PULL_SECONDS = 0.34;
 const TREASURE_LOSS_FADE_SECONDS = 0.264;
 const HIDDEN_POCKET_REVEAL_HOLD_SECONDS = 0.48;
 const HIDDEN_POCKET_PULL_SECONDS = 0.34;
@@ -233,7 +231,7 @@ const TREASURE_RULES_EN = Object.freeze({
   quickRuleOneTitle: "Place one stake",
   quickRuleOneText: "Choose balls and lines.",
   quickRuleTwoTitle: "Open cells",
-  quickRuleTwoText: "Multiplier = win. Red pocket = loss.",
+  quickRuleTwoText: "Dark green keeps the ball. Black removes it.",
   quickRuleBonusTitle: "Find bonuses",
   quickRuleBonusText: "3 diamonds = x10. Blue pocket = 3 balls.",
   quickRuleThreeTitle: "Cash out or risk",
@@ -247,13 +245,13 @@ const TREASURE_RULES_EN = Object.freeze({
   ruleLaunchTitle: "Start a round",
   ruleLaunchText: "Choose 1–3 balls and 5–10 lines. The green button shows the total stake. Only the first shot on a field is paid.",
   ruleWinsTitle: "Open cells",
-  ruleWinsText: "A closed green cell can reveal nothing, a multiplier, a diamond, a blue pocket or a red pocket. Balls may return to opened cells.",
+  ruleWinsText: "A dark-green cell keeps the ball and reveals a multiplier, diamond or blue pocket. A black cell removes only the ball that stops on it.",
   rulePocketTitle: "Pocket",
   rulePocketFieldText: "A hidden blue pocket opens when a ball stops on it, pulls the ball to the centre and releases three free white balls.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Collect three diamonds. Field multipliers become x10. Multipliers collected before the bonus keep their original value.",
   treasureCashoutTitle: "Cash out or risk",
-  treasureCashoutText: "After a safe shot, take the displayed amount or continue free on the same field. A red pocket loses the current round.",
+  treasureCashoutText: "If at least one ball remains, take the displayed amount or continue free with the surviving balls. The round is lost only when no balls remain.",
   ruleFieldTitle: "Lines and risk",
   ruleFieldText: "More lines make cells smaller and increase available multiplier values. Volatility and possible rewards rise.",
   ruleAutoTitle: "Autoplay",
@@ -279,7 +277,7 @@ const TREASURE_RULES_RU = Object.freeze({
   quickRuleOneTitle: "Сделайте одну ставку",
   quickRuleOneText: "Выберите шары и линии.",
   quickRuleTwoTitle: "Открывайте ячейки",
-  quickRuleTwoText: "Множитель — выигрыш. Красная луза — проигрыш.",
+  quickRuleTwoText: "Тёмно-зелёная сохраняет шар. Чёрная убирает его.",
   quickRuleBonusTitle: "Находите бонусы",
   quickRuleBonusText: "3 алмаза = x10. Голубая луза = 3 шара.",
   quickRuleThreeTitle: "Заберите или рискуйте",
@@ -293,13 +291,13 @@ const TREASURE_RULES_RU = Object.freeze({
   ruleLaunchTitle: "Начало раунда",
   ruleLaunchText: "Выберите 1–3 шара и 5–10 линий. На зелёной кнопке показана общая ставка. Оплачивается только первый выстрел на поле.",
   ruleWinsTitle: "Открытие ячеек",
-  ruleWinsText: "Закрытая зелёная ячейка может оказаться пустой или открыть множитель, алмаз, голубую или красную лузу. Шары могут снова попадать на открытые ячейки.",
+  ruleWinsText: "Тёмно-зелёная ячейка сохраняет шар и открывает множитель, алмаз или голубую лузу. Чёрная ячейка убирает только остановившийся на ней шар.",
   rulePocketTitle: "Луза",
   rulePocketFieldText: "Скрытая голубая луза открывается после остановки шара, притягивает его к центру и выпускает три бесплатных белых шара.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Соберите три алмаза. Множители на поле станут x10. Множители, полученные до бонуса, сохраняют исходное значение.",
   treasureCashoutTitle: "Забрать или рискнуть",
-  treasureCashoutText: "После безопасного выстрела заберите показанную сумму или продолжите бесплатно на том же поле. Красная луза проигрывает текущий раунд.",
+  treasureCashoutText: "Если остался хотя бы один шар, заберите показанную сумму или продолжите бесплатно оставшимися шарами. Раунд проигран только когда шаров не осталось.",
   ruleFieldTitle: "Линии и риск",
   ruleFieldText: "Чем больше линий, тем меньше ячейки и выше доступные множители. Волатильность и возможная награда растут.",
   ruleAutoTitle: "Автоигра",
@@ -327,7 +325,7 @@ const TREASURE_RULES_ES = Object.freeze({
   quickRuleOneTitle: "Haz una apuesta",
   quickRuleOneText: "Elige bolas y líneas.",
   quickRuleTwoTitle: "Abre casillas",
-  quickRuleTwoText: "Multiplicador = premio. Tronera roja = pérdida.",
+  quickRuleTwoText: "Verde oscuro conserva la bola. Negra la elimina.",
   quickRuleBonusTitle: "Encuentra bonos",
   quickRuleBonusText: "3 diamantes = x10. Tronera azul = 3 bolas.",
   quickRuleThreeTitle: "Cobra o arriesga",
@@ -341,13 +339,13 @@ const TREASURE_RULES_ES = Object.freeze({
   ruleLaunchTitle: "Empezar una ronda",
   ruleLaunchText: "Elige 1–3 bolas y 5–10 líneas. El botón verde muestra la apuesta total. Solo se paga el primer tiro del campo.",
   ruleWinsTitle: "Abrir casillas",
-  ruleWinsText: "Una casilla verde cerrada puede revelar vacío, multiplicador, diamante, tronera azul o roja. Las bolas pueden volver a casillas abiertas.",
+  ruleWinsText: "Una casilla verde oscura conserva la bola y revela multiplicador, diamante o tronera azul. Una casilla negra elimina solo la bola que se detiene en ella.",
   rulePocketTitle: "Tronera",
   rulePocketFieldText: "La tronera azul oculta se abre al detenerse una bola, la atrae al centro y libera tres bolas blancas gratis.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Reúne tres diamantes. Los multiplicadores del campo pasan a x10. Los obtenidos antes del bono conservan su valor original.",
   treasureCashoutTitle: "Cobrar o arriesgar",
-  treasureCashoutText: "Después de un tiro seguro, cobra el importe mostrado o continúa gratis en el mismo campo. Una tronera roja pierde la ronda actual.",
+  treasureCashoutText: "Si queda al menos una bola, cobra el importe mostrado o continúa gratis con las supervivientes. La ronda se pierde solo cuando no queda ninguna.",
   ruleFieldTitle: "Líneas y riesgo",
   ruleFieldText: "Más líneas reducen el tamaño de las casillas y aumentan los multiplicadores disponibles. Suben la volatilidad y el premio posible.",
   ruleAutoTitle: "Juego automático",
@@ -369,7 +367,7 @@ const TREASURE_RULES_PT = Object.freeze({
   quickRuleOneTitle: "Faça uma aposta",
   quickRuleOneText: "Escolha bolas e linhas.",
   quickRuleTwoTitle: "Abra as células",
-  quickRuleTwoText: "Multiplicador = ganho. Caçapa vermelha = perda.",
+  quickRuleTwoText: "Verde-escura mantém a bola. Preta remove a bola.",
   quickRuleBonusTitle: "Encontre bônus",
   quickRuleBonusText: "3 diamantes = x10. Caçapa azul = 3 bolas.",
   quickRuleThreeTitle: "Saque ou arrisque",
@@ -383,13 +381,13 @@ const TREASURE_RULES_PT = Object.freeze({
   ruleLaunchTitle: "Iniciar uma rodada",
   ruleLaunchText: "Escolha 1–3 bolas e 5–10 linhas. O botão verde mostra a aposta total. Somente o primeiro lançamento do campo é pago.",
   ruleWinsTitle: "Abrir células",
-  ruleWinsText: "Uma célula verde fechada pode revelar vazio, multiplicador, diamante, caçapa azul ou vermelha. As bolas podem voltar a células abertas.",
+  ruleWinsText: "Uma célula verde-escura mantém a bola e revela multiplicador, diamante ou caçapa azul. Uma célula preta remove apenas a bola que para nela.",
   rulePocketTitle: "Caçapa",
   rulePocketFieldText: "A caçapa azul oculta abre quando uma bola para nela, puxa a bola ao centro e libera três bolas brancas grátis.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Colete três diamantes. Os multiplicadores do campo passam a x10. Multiplicadores coletados antes do bônus mantêm o valor original.",
   treasureCashoutTitle: "Sacar ou arriscar",
-  treasureCashoutText: "Após um lançamento seguro, saque o valor exibido ou continue grátis no mesmo campo. Uma caçapa vermelha perde a rodada atual.",
+  treasureCashoutText: "Se restar pelo menos uma bola, saque o valor exibido ou continue grátis com as sobreviventes. A rodada só é perdida quando não restam bolas.",
   ruleFieldTitle: "Linhas e risco",
   ruleFieldText: "Mais linhas deixam as células menores e aumentam os multiplicadores disponíveis. A volatilidade e o ganho possível aumentam.",
   ruleAutoTitle: "Jogo automático",
@@ -411,7 +409,7 @@ const TREASURE_RULES_DE = Object.freeze({
   quickRuleOneTitle: "Einsatz wählen",
   quickRuleOneText: "Wähle Bälle und Linien.",
   quickRuleTwoTitle: "Felder öffnen",
-  quickRuleTwoText: "Multiplikator = Gewinn. Rote Tasche = Verlust.",
+  quickRuleTwoText: "Dunkelgrün behält den Ball. Schwarz entfernt ihn.",
   quickRuleBonusTitle: "Boni finden",
   quickRuleBonusText: "3 Diamanten = x10. Blaue Tasche = 3 Bälle.",
   quickRuleThreeTitle: "Auszahlen oder riskieren",
@@ -425,13 +423,13 @@ const TREASURE_RULES_DE = Object.freeze({
   ruleLaunchTitle: "Runde starten",
   ruleLaunchText: "Wähle 1–3 Bälle und 5–10 Linien. Die grüne Taste zeigt den Gesamteinsatz. Nur der erste Wurf auf dem Feld kostet.",
   ruleWinsTitle: "Felder öffnen",
-  ruleWinsText: "Ein geschlossenes grünes Feld kann leer sein oder Multiplikator, Diamant, blaue beziehungsweise rote Tasche zeigen. Bälle können auf offene Felder zurückkehren.",
+  ruleWinsText: "Ein dunkelgrünes Feld behält den Ball und zeigt Multiplikator, Diamant oder blaue Tasche. Ein schwarzes Feld entfernt nur den dort gestoppten Ball.",
   rulePocketTitle: "Tasche",
   rulePocketFieldText: "Die verdeckte blaue Tasche öffnet sich, wenn ein Ball darauf stoppt, zieht ihn zur Mitte und gibt drei kostenlose weiße Bälle frei.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Sammle drei Diamanten. Die Feldmultiplikatoren werden zu x10. Vor dem Bonus gesammelte Multiplikatoren behalten ihren ursprünglichen Wert.",
   treasureCashoutTitle: "Auszahlen oder riskieren",
-  treasureCashoutText: "Nach einem sicheren Wurf den angezeigten Betrag auszahlen oder auf demselben Feld gratis weiterspielen. Eine rote Tasche verliert die Runde.",
+  treasureCashoutText: "Bleibt mindestens ein Ball, kann der Betrag ausgezahlt oder mit den überlebenden Bällen gratis weitergespielt werden. Verloren ist die Runde erst ohne Bälle.",
   ruleFieldTitle: "Linien und Risiko",
   ruleFieldText: "Mehr Linien machen die Felder kleiner und erhöhen verfügbare Multiplikatoren. Volatilität und möglicher Gewinn steigen.",
   ruleAutoTitle: "Autoplay",
@@ -453,7 +451,7 @@ const TREASURE_RULES_FR = Object.freeze({
   quickRuleOneTitle: "Placez une mise",
   quickRuleOneText: "Choisissez les boules et les lignes.",
   quickRuleTwoTitle: "Ouvrez les cases",
-  quickRuleTwoText: "Multiplicateur = gain. Poche rouge = perte.",
+  quickRuleTwoText: "Vert foncé garde la boule. Noir la retire.",
   quickRuleBonusTitle: "Trouvez les bonus",
   quickRuleBonusText: "3 diamants = x10. Poche bleue = 3 boules.",
   quickRuleThreeTitle: "Encaissez ou risquez",
@@ -467,13 +465,13 @@ const TREASURE_RULES_FR = Object.freeze({
   ruleLaunchTitle: "Démarrer une manche",
   ruleLaunchText: "Choisissez 1–3 boules et 5–10 lignes. Le bouton vert affiche la mise totale. Seul le premier tir du terrain est payant.",
   ruleWinsTitle: "Ouvrir les cases",
-  ruleWinsText: "Une case verte fermée peut révéler du vide, un multiplicateur, un diamant, une poche bleue ou rouge. Les boules peuvent revenir sur des cases ouvertes.",
+  ruleWinsText: "Une case vert foncé garde la boule et révèle multiplicateur, diamant ou poche bleue. Une case noire retire seulement la boule qui s’y arrête.",
   rulePocketTitle: "Poche",
   rulePocketFieldText: "La poche bleue cachée s’ouvre quand une boule s’y arrête, l’attire au centre et libère trois boules blanches gratuites.",
   ruleBoostTitle: "x10 BOOST",
   ruleBoostText: "Collectez trois diamants. Les multiplicateurs du terrain passent à x10. Ceux obtenus avant le bonus gardent leur valeur initiale.",
   treasureCashoutTitle: "Encaisser ou risquer",
-  treasureCashoutText: "Après un tir sûr, encaissez le montant affiché ou continuez gratuitement sur le même terrain. Une poche rouge fait perdre la manche.",
+  treasureCashoutText: "S’il reste au moins une boule, encaissez le montant affiché ou continuez gratuitement avec les survivantes. La manche est perdue seulement lorsqu’il n’en reste aucune.",
   ruleFieldTitle: "Lignes et risque",
   ruleFieldText: "Plus de lignes réduisent les cases et augmentent les multiplicateurs disponibles. La volatilité et le gain possible augmentent.",
   ruleAutoTitle: "Jeu automatique",
@@ -633,7 +631,7 @@ const state = {
   treasureDiamondFlightsActive: 0,
   treasureDiamondResolutionActive: false,
   lastTreasureSettledPuckIndex: null,
-  treasureRedLossActive: false,
+  treasureLossActive: false,
   treasureCashoutRevealActive: false,
   treasureCashoutPuckFadeFrame: null,
   treasureCashoutPuckFadeStartedAt: 0,
@@ -851,13 +849,18 @@ function getTreasurePlayerCashoutMultiplier(round, { boosted = null } = {}) {
       isBoosted: Boolean(hit?.boosted)
     }))
     .filter((hit) => hit.baseMultiplier > 1);
-  if (!multipliers.length) return 1;
-  return multipliers.reduce((product, hit) => {
+  const rewardMultiplier = multipliers.reduce((product, hit) => {
     const multiplier = boosted === false
       ? 1
       : hit.isBoosted ? 10 : 1;
     return product * hit.baseMultiplier * multiplier;
   }, 1);
+  const initialPucks = Math.max(1, Number(round.initialPucks ?? round.pucks) || 1);
+  const remainingPucks = Math.max(
+    0,
+    Math.min(initialPucks, Number(round.remainingPucks ?? initialPucks) || 0)
+  );
+  return rewardMultiplier * remainingPucks / initialPucks;
 }
 
 function syncTreasurePlayerCashoutMultiplier(round = state.treasureRound) {
@@ -868,6 +871,7 @@ function syncTreasurePlayerCashoutMultiplier(round = state.treasureRound) {
 
 function recordTreasureMultiplierHit(round, cell) {
   const multiplierActive = cell?.kind === "multiplier"
+    && !cell.neutral
     && (!cell.purpleOnly || round?.boostActive || cell.boostedDisplay);
   if (!round || !multiplierActive || !(cell.baseMultiplier > 1)) {
     return syncTreasurePlayerCashoutMultiplier(round);
@@ -907,25 +911,31 @@ function createTreasureShotOutcome(round, puckCount, seed) {
       : []
   };
   const plannedExclusions = [];
-  const planCellResolution = (cell) => {
+  const planCellResolution = (cell, { consumeLife = true } = {}) => {
     const plannedCell = planningRound.cells[cell.index];
     const wasOpened = Boolean(plannedCell.opened);
-    const stepMultiplier = planningRound.active && plannedCell.kind !== "red"
+    const stepMultiplier = planningRound.active && plannedCell.kind !== "loss"
       ? math.stepMultiplierForCell(planningRound, plannedCell, plannedExclusions)
       : 0;
     if (planningRound.active) {
       math.revealCell(planningRound, plannedCell.index, {
         excludedIndexes: plannedExclusions,
         stepMultiplier,
-        shotKey: String(round.shotCount)
+        shotKey: String(round.shotCount),
+        consumeLife
       });
     }
     plannedExclusions.push(plannedCell.index);
     return { wasOpened, stepMultiplier };
   };
-  const selectAndPlanCell = (selectionSeed) => {
+  const selectAndPlanCell = (selectionSeed, { consumeLife = true, excludeLoss = false } = {}) => {
     const selectionRound = planningRound.active ? planningRound : round;
-    const selected = math.selectShotCells(selectionRound, 1, selectionSeed, plannedExclusions)[0];
+    const selectionExclusions = excludeLoss
+      ? [...plannedExclusions, ...selectionRound.cells
+        .filter((candidate) => candidate.kind === "loss")
+        .map((candidate) => candidate.index)]
+      : plannedExclusions;
+    const selected = math.selectShotCells(selectionRound, 1, selectionSeed, selectionExclusions)[0];
     if (!selected) return null;
     const cell = { ...selected };
     if (!planningRound.active) {
@@ -935,7 +945,7 @@ function createTreasureShotOutcome(round, puckCount, seed) {
         plan: { wasOpened: Boolean(cell.opened), stepMultiplier: 0 }
       };
     }
-    return { cell, plan: planCellResolution(cell) };
+    return { cell, plan: planCellResolution(cell, { consumeLife }) };
   };
   const mainSelections = [];
   for (let puckIndex = 0; puckIndex < puckCount; puckIndex += 1) {
@@ -980,12 +990,12 @@ function createTreasureShotOutcome(round, puckCount, seed) {
     const releaseSelections = [];
     for (let releaseIndex = 0; releaseIndex < 3; releaseIndex += 1) {
       const releaseSeed = (seed ^ math.hashString(`pocket-release:${resultPath}:${releaseIndex}`)) >>> 0;
-      const selection = selectAndPlanCell(releaseSeed);
+      const selection = selectAndPlanCell(releaseSeed, { consumeLife: false, excludeLoss: true });
       if (!selection) break;
       releaseSelections.push(selection);
     }
     const fallbackCells = round.cells.filter((candidate) =>
-      candidate.kind !== "red"
+      candidate.kind !== "loss"
       && candidate.kind !== "pocket"
       && !plannedExclusions.includes(candidate.index));
     while (releaseSelections.length < 3 && fallbackCells.length) {
@@ -1195,64 +1205,6 @@ function playWallHitSound(speed = 0) {
   gain.connect(audio.destination);
   oscillator.start(now);
   oscillator.stop(now + 0.1);
-}
-
-function playRedPocketDropSound() {
-  if (state.soundEffectsMuted) return;
-  const audio = getAudioContext();
-  if (!audio) return;
-  if (audio.state === "suspended") audio.resume();
-
-  const now = audio.currentTime;
-  const master = audio.createGain();
-  const filter = audio.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.setValueAtTime(1450, now);
-  filter.frequency.exponentialRampToValueAtTime(360, now + 0.34);
-  master.gain.setValueAtTime(0.0001, now);
-  master.gain.exponentialRampToValueAtTime(0.42, now + 0.006);
-  master.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
-  master.connect(filter);
-  filter.connect(audio.destination);
-
-  const impact = audio.createOscillator();
-  const impactGain = audio.createGain();
-  impact.type = "triangle";
-  impact.frequency.setValueAtTime(185, now);
-  impact.frequency.exponentialRampToValueAtTime(52, now + 0.15);
-  impactGain.gain.setValueAtTime(0.0001, now);
-  impactGain.gain.exponentialRampToValueAtTime(0.62, now + 0.004);
-  impactGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
-  impact.connect(impactGain);
-  impactGain.connect(master);
-  impact.start(now);
-  impact.stop(now + 0.22);
-
-  const hollow = audio.createOscillator();
-  const hollowGain = audio.createGain();
-  hollow.type = "sine";
-  hollow.frequency.setValueAtTime(96, now + 0.025);
-  hollow.frequency.exponentialRampToValueAtTime(38, now + 0.32);
-  hollowGain.gain.setValueAtTime(0.0001, now + 0.025);
-  hollowGain.gain.exponentialRampToValueAtTime(0.42, now + 0.045);
-  hollowGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.38);
-  hollow.connect(hollowGain);
-  hollowGain.connect(master);
-  hollow.start(now + 0.025);
-  hollow.stop(now + 0.4);
-
-  const rim = audio.createOscillator();
-  const rimGain = audio.createGain();
-  rim.type = "square";
-  rim.frequency.setValueAtTime(520, now);
-  rim.frequency.exponentialRampToValueAtTime(130, now + 0.055);
-  rimGain.gain.setValueAtTime(0.0001, now);
-  rimGain.gain.exponentialRampToValueAtTime(0.2, now + 0.002);
-  rimGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.07);
-  rim.connect(rimGain);
-  rimGain.connect(master);
-  rim.start(now);
-  rim.stop(now + 0.08);
 }
 
 function playPocketDropSound() {
@@ -2583,10 +2535,6 @@ function getTreasureCellPocketGeometry(cell, idPrefix = "treasure-pocket") {
   };
 }
 
-function getTreasureRedPocketGeometry(cell) {
-  return getTreasureCellPocketGeometry(cell, "treasure-red");
-}
-
 function getSecretZoneGeometry(id) {
   if (usesFieldPocketMechanics() && isFieldPocketOpen()) {
     return getFieldPocketGeometry();
@@ -3248,11 +3196,8 @@ function drawMainFieldMultiplierLabels(mergedMultiplierCells, bonusGridActive, h
   }
 }
 
-function isTreasureMultiplierHintCell(cell) {
-  return Boolean(
-    cell?.kind === "multiplier"
-    && Number(cell.baseMultiplier) > 1
-  );
+function isTreasureSafeCell(cell) {
+  return Boolean(cell && cell.kind !== "loss");
 }
 
 function getTreasureClosedCellPaint(
@@ -3260,12 +3205,11 @@ function getTreasureClosedCellPaint(
   col,
   boosted = false,
   fillAlpha = 0.98,
-  multiplierHint = false
+  safeCell = true
 ) {
-  const hintAlpha = Math.min(fillAlpha, 0.86);
   return {
-    fill: multiplierHint
-      ? `rgba(218, 177, 32, ${hintAlpha})`
+    fill: !safeCell
+      ? "#000000"
       : boosted
         ? `rgba(78, 35, 104, ${fillAlpha})`
         : `rgba(7, 67, 38, ${fillAlpha})`,
@@ -3285,20 +3229,24 @@ function drawTreasureHiddenCellContents(cell, bonusGridActive) {
   tracePolygon(getCellScreenPoints(cell.col, cell.row));
   ctx.clip();
 
-  if (cell.kind === "red" || cell.kind === "pocket") {
-    const redPocket = cell.kind === "red";
+  if (cell.kind === "loss") {
+    ctx.restore();
+    return;
+  }
+
+  if (cell.kind === "pocket") {
     const pocket = getTreasureCellPocketGeometry(
       cell,
-      redPocket ? "treasure-red-preview" : "treasure-blue-preview"
+      "treasure-blue-preview"
     );
     if (pocket) {
       drawSecretPocket(
         pocket,
-        redPocket ? "rgba(239, 61, 54, 0.98)" : "rgb(117, 217, 255)",
+        "rgb(117, 217, 255)",
         false,
         null,
         true,
-        redPocket ? "red" : "blue"
+        "blue"
       );
     }
     ctx.restore();
@@ -3321,7 +3269,7 @@ function drawTreasureHiddenCellContents(cell, bonusGridActive) {
     return;
   }
 
-  if (cell.kind !== "multiplier" || !(cell.displayMultiplier > 1)) {
+  if (cell.kind !== "multiplier" || !(cell.displayMultiplier >= 1)) {
     ctx.restore();
     return;
   }
@@ -3386,7 +3334,7 @@ function drawTreasureCellBreakAnimations() {
       cell.col,
       animationBoosted,
       0.98,
-      isTreasureMultiplierHintCell(cell)
+      isTreasureSafeCell(cell)
     );
     const bounds = points.reduce((result, point) => ({
       minX: Math.min(result.minX, point.x),
@@ -3463,7 +3411,7 @@ function drawTreasureField() {
   const { half, grid } = state.field;
   const round = state.treasureRound;
   const bonusGridActive = Boolean(round?.boostActive || state.x10BoostActivated);
-  const revealHiddenField = state.treasureRedLossActive || state.treasureCashoutRevealActive;
+  const revealHiddenField = state.treasureLossActive || state.treasureCashoutRevealActive;
   const resultMultiplierCells = new Set(
     state.pucks
       .filter((puck) => puck.result?.multiplier > 0 && !puck.red && !puck.hiddenAfterLoss)
@@ -3505,26 +3453,22 @@ function drawTreasureField() {
           col,
           bonusGridActive,
           revealHiddenField ? 0.5 : 0.98,
-          isTreasureMultiplierHintCell(cell)
+          isTreasureSafeCell(cell)
         );
         drawCell(col, row, paint.fill, paint.stroke);
         continue;
       }
-      if (cell.kind === "red") {
-        drawCell(col, row, "#000000");
-        const redPocket = getTreasureRedPocketGeometry(cell);
-        if (redPocket) {
-          drawSecretPocket(redPocket, "rgba(239, 61, 54, 0.98)", false, null, false);
-        }
-        continue;
-      }
-      drawCell(col, row, "#000000");
+      const openedCellFill = cell?.kind === "loss"
+        ? "#000000"
+        : bonusGridActive
+          ? "rgba(78, 35, 104, 0.5)"
+          : "rgba(7, 67, 38, 0.5)";
+      drawCell(col, row, openedCellFill);
     }
   }
 
-  // Redraw the structural grid after every cell fill. Opened empty cells are
-  // intentionally black, so drawing their borders here prevents that fill
-  // from erasing the green or purple mesh at shared edges.
+  // Redraw the structural grid after every cell fill so translucent opened
+  // reward cells and black loss cells cannot erase the shared mesh.
   const treasureGridColor = bonusGridActive
     ? "rgba(190, 124, 234, 0.52)"
     : "rgba(27, 184, 102, 0.24)";
@@ -3535,7 +3479,7 @@ function drawTreasureField() {
     if (puck.stopped || puckIsUsingSecretRoom(puck)) return;
     const position = getCellFromPoint(puck.x, puck.y);
     const cell = getTreasureCell(position.col, position.row);
-    if (!cell || cell.opened) return;
+    if (!cell || cell.opened || cell.kind === "loss") return;
     const key = `${position.col}_${position.row}`;
     if (movingHighlightedCells.has(key)) return;
     movingHighlightedCells.add(key);
@@ -3557,7 +3501,7 @@ function drawTreasureField() {
   for (let row = 0; row < GRID_SIZE; row += 1) {
     for (let col = 0; col < GRID_SIZE; col += 1) {
       const cell = getTreasureCell(col, row);
-      if (!cell?.opened || cell.kind !== "multiplier" || !(cell.displayMultiplier > 1)
+      if (!cell?.opened || cell.kind !== "multiplier" || !(cell.displayMultiplier >= 1)
         || (cell.purpleOnly && !bonusGridActive)) continue;
       const center = toScreen(-half + grid * (col + 0.5), -half + grid * (row + 0.5));
       const cellBoosted = bonusGridActive && Boolean(cell.boostedDisplay);
@@ -4685,9 +4629,9 @@ function hasVisibleCollectibles() {
     || Boolean(state.multiPlusToken && !state.multiPlusToken.collected)
     || state.pucks.some((puck) => puck.result?.diamondReveal)
     || (usesFieldPocketMechanics() && Boolean(state.fieldPocket))
-    || Boolean((state.treasureRedLossActive || state.treasureCashoutRevealActive)
+    || Boolean((state.treasureLossActive || state.treasureCashoutRevealActive)
       && state.treasureRound?.cells?.some((cell) =>
-      !cell.opened && ["diamond", "pocket", "red"].includes(cell.kind)));
+      !cell.opened && ["diamond", "pocket"].includes(cell.kind)));
 }
 
 function animateCollectibleIdle(timestamp = performance.now()) {
@@ -5044,8 +4988,7 @@ function updatePhysicsDebug() {
     `trajectory plans: ${state.trajectoryPlans.length}`,
     `puck phases: ${state.pucks.map((puck) => puck.lossFade ? "loss_fade"
       : puck.hiddenAfterLoss ? "hidden_after_loss"
-      : puck.redPocket?.phase
-      || puck.secretRoom?.phase
+      : puck.secretRoom?.phase
       || (puck.stopped ? "stopped" : "field")).join(", ") || "none"}`,
     `bonus expected: ${Boolean(state.roundOutcome?.bonus_triggered)}`,
     `bonus visually collected: ${visualCollected}/${getRequiredStars()}`
@@ -6648,7 +6591,7 @@ function activateX10Boost() {
       // from playerMultiplierHits: rewards already added before the diamond
       // stay at their base value, while the current and future shots use x10.
       state.treasureRound.cells?.forEach((cell) => {
-        if (cell.kind !== "multiplier") return;
+        if (cell.kind !== "multiplier" || cell.neutral) return;
         cell.boostedDisplay = true;
         cell.displayMultiplier = cell.baseMultiplier * 10;
       });
@@ -6878,7 +6821,7 @@ function resetPucks() {
   state.crownsCollected = 0;
   state.x10BoostActivated = false;
   state.crownBonusAwarded = false;
-  state.treasureRedLossActive = false;
+  state.treasureLossActive = false;
   state.treasureCashoutRevealActive = false;
   clearTreasureCashoutPuckFade();
   state.running = false;
@@ -6915,7 +6858,13 @@ function prepareTreasureLaunchRound(slot) {
 
   setupCanvas();
   const continuing = Boolean(state.treasureRound?.active);
-  const betPerPuck = continuing ? state.treasureRound.bet / state.puckCount : parseBet(slot);
+  const launchPuckCount = continuing
+    ? Math.max(1, Number(state.treasureRound.remainingPucks) || 1)
+    : state.puckCount;
+  const initialPuckCount = continuing
+    ? Math.max(1, Number(state.treasureRound.initialPucks ?? state.treasureRound.pucks) || 1)
+    : state.puckCount;
+  const betPerPuck = continuing ? state.treasureRound.bet / initialPuckCount : parseBet(slot);
   const totalBet = continuing ? 0 : betPerPuck * state.puckCount;
   if (betPerPuck <= 0) return false;
   if (!continuing && state.bankroll < totalBet) {
@@ -6929,7 +6878,7 @@ function prepareTreasureLaunchRound(slot) {
     : math.createRound({ lines: GRID_SIZE, pucks: state.puckCount, seed: roundSeed, bet: totalBet });
   if (!Array.isArray(treasureRound.playerMultiplierHits)) treasureRound.playerMultiplierHits = [];
   syncTreasurePlayerCashoutMultiplier(treasureRound);
-  const roundOutcome = createTreasureShotOutcome(treasureRound, state.puckCount, roundSeed);
+  const roundOutcome = createTreasureShotOutcome(treasureRound, launchPuckCount, roundSeed);
   const previousFieldPocket = state.fieldPocket;
   const pocketCell = treasureRound.cells.find((cell) => cell.kind === "pocket");
   const pocketWillOpen = roundOutcome?.puck_results?.some((result) => result.secret_room);
@@ -6975,7 +6924,7 @@ function prepareTreasureLaunchRound(slot) {
   clearTreasureCashoutConfetti();
   clearTreasureCashoutPuckFade();
   clearTreasureWinFlyIn();
-  state.treasureRedLossActive = false;
+  state.treasureLossActive = false;
   state.treasureCashoutRevealActive = false;
   if (!continuing) {
     state.bankroll -= totalBet;
@@ -7567,58 +7516,37 @@ function stepSecretRoomPuck(puck) {
   return false;
 }
 
-function triggerTreasureRedPocketLoss(capturedPuck) {
-  const lossAlreadyActive = Boolean(state.treasureRedLossActive);
-  state.treasureRedLossActive = true;
-  if (capturedPuck) {
-    capturedPuck.red = true;
-    capturedPuck.lossFade = null;
-    capturedPuck.lossFadeOpacity = 1;
-    capturedPuck.hiddenAfterLoss = false;
-    capturedPuck.stopped = true;
+function triggerTreasureBlackCellLoss(puck) {
+  if (!puck) return;
+  const roundLost = Boolean(state.treasureRound?.lost
+    || Number(state.treasureRound?.remainingPucks) <= 0);
+  state.treasureLossActive = roundLost;
+  puck.red = false;
+  puck.hiddenAfterLoss = false;
+  puck.lossFadeOpacity = 1;
+  puck.lossFade = { elapsed: 0, duration: TREASURE_LOSS_FADE_SECONDS };
+  puck.stopped = false;
+  puck.secretRoom = null;
+  puck.vx = 0;
+  puck.vy = 0;
+  puck.speed = 0;
+  if (puck.result) {
+    puck.result.multiplier = 0;
+    puck.result.loss = true;
+    puck.result.diamondReveal = false;
+    puck.result.boostRevealStartedAt = 0;
   }
-  if (lossAlreadyActive) {
-    updateRoundWinLabel();
-    render();
-    return;
-  }
-  state.treasureCashoutRevealActive = false;
-  clearTreasureCashoutConfetti();
-  clearTreasureDiamondResolution();
-  state.bonusStars = state.bonusStars.filter((star) => !star.treasurePendingResult);
-  state.settledCells = [];
-  state.roundWinAmount = 0;
-  state.resultSoundStep = 0;
-  state.nextMultiplierSoundAt = 0;
-  state.pucks.forEach((puck) => {
-    const captured = puck === capturedPuck;
-    const redTarget = captured
-      || Boolean(puck.redPocket)
-      || puck.authoritativeResult?.treasure_kind === "red"
-      || puck.result?.red === true;
-    puck.red = captured || puck.redPocket?.phase === "settled";
-    puck.hiddenAfterLoss = false;
-    puck.lossFadeOpacity = 1;
-    if (captured || redTarget) {
-      puck.lossFade = null;
-      if (captured || puck.redPocket?.phase === "settled") puck.stopped = true;
-    } else {
-      puck.lossFade = { elapsed: 0, duration: TREASURE_LOSS_FADE_SECONDS };
-      puck.stopped = false;
-      puck.secretRoom = null;
-      puck.vx = 0;
-      puck.vy = 0;
-      puck.speed = 0;
-    }
-    if (puck.result) {
-      puck.result.multiplier = 0;
-      puck.result.diamondReveal = false;
-      puck.result.boostRevealStartedAt = 0;
-    }
-  });
-  if (state.resultRevealFrame !== null) {
-    cancelAnimationFrame(state.resultRevealFrame);
-    state.resultRevealFrame = null;
+  if (roundLost) {
+    state.treasureCashoutRevealActive = false;
+    clearTreasureCashoutConfetti();
+    clearTreasureDiamondResolution();
+    state.bonusStars = state.bonusStars.filter((star) => !star.treasurePendingResult);
+    state.settledCells = [];
+    state.roundWinAmount = 0;
+    state.resultSoundStep = 0;
+    state.nextMultiplierSoundAt = 0;
+  } else {
+    state.roundWinAmount = getTreasureCashoutAmount(state.treasureRound);
   }
   updateRoundWinLabel();
 }
@@ -7641,54 +7569,6 @@ function stepTreasureLossFadePuck(puck) {
   return true;
 }
 
-function stepTreasureRedPocketPuck(puck) {
-  const visit = puck.redPocket;
-  if (!visit) return false;
-  const cell = state.treasureRound?.cells?.[visit.cellIndex];
-  const pocket = getTreasureRedPocketGeometry(cell);
-  if (!pocket) return false;
-  if (visit.phase === "reveal_wait") {
-    visit.elapsed += FIXED_PHYSICS_STEP;
-    puck.vx = 0;
-    puck.vy = 0;
-    puck.speed = 0;
-    if (visit.elapsed >= visit.duration) {
-      playRedPocketDropSound();
-      visit.phase = "pulling";
-      visit.elapsed = 0;
-      visit.duration = TREASURE_RED_POCKET_PULL_SECONDS;
-      visit.start = { x: puck.x, y: puck.y };
-    }
-    return true;
-  }
-  if (visit.phase === "pulling") {
-    visit.elapsed += FIXED_PHYSICS_STEP;
-    const progress = clamp(visit.elapsed / visit.duration, 0, 1);
-    const eased = progress * progress;
-    puck.previousX = puck.x;
-    puck.previousY = puck.y;
-    puck.x = visit.start.x + (pocket.hole.x - visit.start.x) * eased;
-    puck.y = visit.start.y + (pocket.hole.y - visit.start.y) * eased;
-    puck.vx = (puck.x - puck.previousX) / FIXED_PHYSICS_STEP;
-    puck.vy = (puck.y - puck.previousY) / FIXED_PHYSICS_STEP;
-    puck.speed = Math.hypot(puck.vx, puck.vy);
-    puck.pocketDepth = progress * 0.55;
-    if (progress >= 1) {
-      visit.phase = "settled";
-      puck.x = pocket.hole.x;
-      puck.y = pocket.hole.y;
-      puck.vx = 0;
-      puck.vy = 0;
-      puck.speed = 0;
-      puck.stopped = true;
-      state.lastTreasureSettledPuckIndex = state.pucks.indexOf(puck);
-      triggerTreasureRedPocketLoss(puck);
-    }
-    return true;
-  }
-  return visit.phase === "settled";
-}
-
 function getSectorCenter(sector) {
   const { half, grid } = state.field;
   return {
@@ -7708,7 +7588,6 @@ function stepReplayPuck(puck) {
     puck.replayDelayFrames -= 1;
     return;
   }
-  if (stepTreasureRedPocketPuck(puck)) return;
   if (stepSecretRoomPuck(puck)) return;
   const previousBounces = puck.bounceCount;
   const replayProgress = puck.replayCursor / Math.max(1, frames.length - 1);
@@ -7855,14 +7734,15 @@ function revealTreasureCellForPuck(puck) {
   if (cell && roundWasActive && math) {
     cell = math.revealCell(round, cell.index, {
       stepMultiplier: result.treasure_step_multiplier,
-      shotKey: result.result_path ? String(result.result_path).split(".")[0].split(":")[0] : null
+      shotKey: result.result_path ? String(result.result_path).split(".")[0].split(":")[0] : null,
+      consumeLife: !result.pocket_release
     });
   } else if (cell && !cell.opened) {
     cell.opened = true;
     cell.revealOrder = round?.openedCount ?? 0;
     if (round) round.openedCount += 1;
     if (cell.kind === "multiplier") {
-      cell.displayMultiplier = cell.baseMultiplier * (round?.boostActive ? 10 : 1);
+      cell.displayMultiplier = cell.baseMultiplier * (round?.boostActive && !cell.neutral ? 10 : 1);
     }
   }
 
@@ -7870,7 +7750,7 @@ function revealTreasureCellForPuck(puck) {
     round.boostActive = false;
   }
 
-  if (cell && !wasOpened) {
+  if (cell && !wasOpened && cell.kind !== "loss") {
     cell.revealAnimationStartedAt = state.animationsEnabled ? performance.now() : null;
     cell.revealAnimationBoosted = revealAnimationBoosted;
     cell.revealAnimationMirrored = randomBetween(0, 1) < 0.5;
@@ -7929,13 +7809,13 @@ function settleTreasurePuck(puck) {
 
   const round = state.treasureRound;
   const cell = revealTreasureCellForPuck(puck);
-  const red = cell?.kind === "red" || result.treasure_kind === "red";
+  const loss = cell?.kind === "loss" || result.treasure_kind === "loss";
   const multiplierActive = cell?.kind === "multiplier"
-    && (!cell.purpleOnly || round?.boostActive || cell.boostedDisplay);
-  const multiplier = !red && !state.treasureRedLossActive && multiplierActive
+    && (cell.neutral || !cell.purpleOnly || round?.boostActive || cell.boostedDisplay);
+  const multiplier = !loss && !state.treasureLossActive && multiplierActive
     ? cell.baseMultiplier
     : 0;
-  const x10Boosted = multiplier > 0 && Boolean(cell?.boostedDisplay);
+  const x10Boosted = multiplier > 1 && !cell?.neutral && Boolean(cell?.boostedDisplay);
   const hiddenPocketReveal = Boolean(result.secretRoom
     && cell?.kind === "pocket"
     && state.fieldPocket?.pendingReveal);
@@ -7949,7 +7829,7 @@ function settleTreasurePuck(puck) {
   puck.result = {
     ...result,
     multiplier,
-    red,
+    loss,
     payout: 0,
     basePayout: 0,
     x10Boosted,
@@ -7959,7 +7839,7 @@ function settleTreasurePuck(puck) {
       && cell.diamondVisible)
   };
   if (puck.result.diamondReveal) scheduleTreasureDiamondFlight(puck);
-  if (!red && multiplier > 0) {
+  if (!loss && multiplier > 0) {
     const playerMultiplier = recordTreasureMultiplierHit(round, cell);
     puck.result.playerCashoutMultiplier = playerMultiplier;
     state.settledCells.push({
@@ -7988,18 +7868,11 @@ function settleTreasurePuck(puck) {
     };
     return;
   }
-  if (red) {
-    puck.stopped = false;
-    puck.redPocket = {
-      cellIndex: cell?.index ?? Number(result.treasure_cell_index),
-      phase: "reveal_wait",
-      elapsed: 0,
-      duration: TREASURE_RED_POCKET_REVEAL_HOLD_SECONDS,
-      start: { x: puck.x, y: puck.y }
-    };
+  if (loss) {
+    triggerTreasureBlackCellLoss(puck);
     return;
   }
-  if (!red && multiplier > 0) playMultiplierResultSound(multiplier, x10Boosted);
+  if (multiplier > 0) playMultiplierResultSound(multiplier, x10Boosted);
   if (state.pucks.every((item) => item.stopped)) startResultRevealAnimation();
 }
 
@@ -8134,13 +8007,13 @@ function launchTreasureDiamondFlight(star) {
       const resultShotKey = result?.result_path
         ? String(result.result_path).split(".")[0].split(":")[0]
         : null;
-      if (resultShotKey !== boostShotKey || !(result.multiplier > 0) || result.secretRoom) return;
+      if (resultShotKey !== boostShotKey || !(result.multiplier > 1) || result.secretRoom) return;
       result.x10Boosted = true;
       result.purpleBoost = true;
       result.boostFromMultiplier = result.multiplier;
       result.boostRevealStartedAt = state.animationsEnabled ? performance.now() : 0;
       const resultCell = round.cells?.[Number(result.treasure_cell_index)];
-      if (resultCell?.kind === "multiplier") {
+      if (resultCell?.kind === "multiplier" && !resultCell.neutral) {
         resultCell.boostedDisplay = true;
         resultCell.displayMultiplier = resultCell.baseMultiplier * 10;
       }
@@ -8318,7 +8191,7 @@ function tick(now, roundId) {
   while (state.physicsAccumulator >= FIXED_PHYSICS_STEP) {
     state.pucks.forEach((puck) => {
       stepReplayPuck(puck);
-      if (!state.treasureRedLossActive && !puck.stopped && !puck.purpleBoost && !puck.pocketRelease) {
+      if (!state.treasureLossActive && !puck.stopped && !puck.purpleBoost && !puck.pocketRelease) {
         collectBonusStarByTouch(puck);
         collectMultiPlusByTouch(puck);
       }

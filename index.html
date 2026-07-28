@@ -7,7 +7,7 @@
   <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Balloro Treasure</title>
-  <link rel="stylesheet" href="style.css?v=20260723-10">
+  <link rel="stylesheet" href="style.css?v=20260728-1">
 </head>
 <body class="treasure-mode bonuses-enabled">
   <main class="game-shell">
@@ -76,17 +76,15 @@
           <li>
             <b>2</b>
             <div class="quick-rule-visual quick-cells-visual" aria-hidden="true">
-              <div class="quick-open-cell quick-multiplier-cell">
+              <div class="quick-open-cell quick-multiplier-cell quick-safe-cell">
                 <span>1.50x</span>
                 <i class="quick-white-ball"></i>
               </div>
-              <div class="quick-open-cell quick-red-cell">
-                <i class="quick-red-pocket"></i>
-              </div>
+              <div class="quick-open-cell quick-loss-cell"></div>
             </div>
             <div class="quick-rule-copy">
               <h3 data-i18n="quickRuleTwoTitle">Open cells</h3>
-              <p data-i18n="quickRuleTwoText">Multiplier = win. Red pocket = loss.</p>
+              <p data-i18n="quickRuleTwoText">Dark green keeps the ball. Black removes it.</p>
             </div>
           </li>
           <li>
@@ -147,12 +145,12 @@
             <article class="rule-card">
               <div class="rule-art loot-art" aria-hidden="true">5x</div>
               <h3 data-i18n="ruleWinsTitle">Open cells</h3>
-              <p data-i18n="ruleWinsText">A closed green cell can reveal nothing, a multiplier, a diamond, a blue pocket or a red pocket. Balls may return to opened cells.</p>
+              <p data-i18n="ruleWinsText">A dark-green cell keeps the ball and reveals a multiplier, diamond or blue pocket. A black cell removes only that ball.</p>
             </article>
             <article class="rule-card">
               <div class="rule-art treasure-cashout-rule-art" aria-hidden="true">$</div>
               <h3 data-i18n="treasureCashoutTitle">Cash out or risk</h3>
-              <p data-i18n="treasureCashoutText">After a safe shot, take the displayed amount or continue free on the same field. A red pocket loses the current round.</p>
+              <p data-i18n="treasureCashoutText">If at least one ball remains, cash out or continue free with the surviving balls.</p>
             </article>
             <article class="rule-card">
               <div class="rule-art pocket-rule-art" aria-hidden="true"><i></i></div>
@@ -397,7 +395,7 @@
   <script src="math/trajectory-library-standard.js"></script>
   <script src="math/secret-room-trajectories.js"></script>
   <script src="math/layout-gameplay-test.js"></script>
-  <script src="math/balloro-treasure-math.js?v=20260723-4"></script>
-  <script src="script.js?v=20260727-6"></script>
+  <script src="math/balloro-treasure-math.js?v=20260728-1"></script>
+  <script src="script.js?v=20260728-1"></script>
 </body>
 </html>

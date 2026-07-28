@@ -28,10 +28,30 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Prepare game-only site
+        run: |
+          mkdir -p _site/assets _site/math
+          cp index.html style.css script.js _site/
+          cp -R assets/. _site/assets/
+          cp \
+            math/field-configuration-1.js \
+            math/field-configuration-2.js \
+            math/field-configuration-3.js \
+            math/field-configuration-4.js \
+            math/field-configuration-5.js \
+            math/puck-luck-layout-modes.js \
+            math/trajectory-planner.js \
+            math/trajectory-library-standard.js \
+            math/secret-room-trajectories.js \
+            math/layout-gameplay-test.js \
+            math/balloro-treasure-math.js \
+            _site/math/
+          touch _site/.nojekyll
+
       - name: Upload static game
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy
         id: deployment
