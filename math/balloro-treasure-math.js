@@ -13,9 +13,11 @@
   const MULTIPLIER_CELL_RETENTION = 0.49;
   const PURPLE_WIN_SHARE = 0.50;
   const LINE_COUNTS = Object.freeze([5, 6, 7, 8, 9, 10]);
-  // Black cells replace the former red-pocket outcomes one-for-one so the
-  // existing loss frequency and volatility profile remain unchanged.
-  const LOSS_CELL_COUNTS = Object.freeze({ 5: 4, 6: 6, 7: 8, 8: 10, 9: 13, 10: 16 });
+  // The original black outcomes plus every former neutral/empty cell form one
+  // visible loss zone. Every remaining green cell therefore contains a real
+  // multiplier or bonus.
+  const BASE_LOSS_CELL_COUNTS = Object.freeze({ 5: 4, 6: 6, 7: 8, 8: 10, 9: 13, 10: 16 });
+  const LOSS_CELL_COUNTS = Object.freeze({ 5: 6, 6: 11, 7: 17, 8: 26, 9: 33, 10: 45 });
   const MULTIPLIER_TABLES = Object.freeze({
     5: Object.freeze({ low: 1.2, medium: 1.5, high: 2.5 }),
     6: Object.freeze({ low: 1.2, medium: 1.8, high: 3 }),
@@ -208,10 +210,15 @@
     const totalCells = size * size;
     const lossCellCount = LOSS_CELL_COUNTS[size];
     const safeCellCount = totalCells - lossCellCount;
+    const provisionalSafeCellCount = totalCells - BASE_LOSS_CELL_COUNTS[size];
     const rng = createRng((Number(seed) ^ hashString(`balloro-treasure:${size}:${puckCount}`)) >>> 0);
     const shuffledIndexes = shuffle(Array.from({ length: totalCells }, (_, index) => index), rng);
     const lossIndexes = new Set(shuffledIndexes.slice(0, lossCellCount));
-    const safeContents = buildSafeContents(size, safeCellCount, DIAMONDS_REQUIRED, rng);
+    const safeContents = buildSafeContents(size, provisionalSafeCellCount, DIAMONDS_REQUIRED, rng)
+      .filter((content) => !(content.kind === "multiplier" && content.neutral));
+    if (safeContents.length !== safeCellCount) {
+      throw new Error(`Treasure reward count mismatch for ${size} lines: ${safeContents.length}/${safeCellCount}`);
+    }
     let safeCursor = 0;
     const cells = Array.from({ length: totalCells }, (_, index) => {
       const coordinates = { index, col: index % size, row: Math.floor(index / size) };
@@ -276,18 +283,12 @@
   }
 
   function rawCellWeight(round, cell) {
-    if (!cell || cell.kind === "loss") return 0;
-    if (cell.kind === "multiplier" && cell.neutral) return EMPTY_WEIGHT;
-    const effectiveKind = cell.opened && cell.kind === "diamond" ? "empty" : cell.kind;
-    if (effectiveKind === "empty") return EMPTY_WEIGHT;
+    if (!cell || isLossOutcome(cell)) return 0;
     if (cell.kind === "pocket") return POCKET_WEIGHT;
     if (cell.kind === "diamond") {
       const completesBoost = !round.boostActive
         && round.diamondsCollected + 1 >= round.diamondsRequired;
       return completesBoost ? BOOST_MULTIPLIER : DIAMOND_WEIGHT;
-    }
-    if (cell.kind === "multiplier" && cell.purpleOnly && !round.boostActive && !cell.boostedDisplay) {
-      return EMPTY_WEIGHT;
     }
     if (cell.kind === "multiplier") {
       return cell.baseMultiplier * ((cell.boostedDisplay || round.boostActive) ? BOOST_MULTIPLIER : 1);
@@ -299,10 +300,14 @@
     return round.cells.filter((cell) => !cell.opened);
   }
 
+  function isLossOutcome(cell) {
+    return Boolean(cell && (cell.kind === "loss"
+      || (cell.kind === "diamond" && cell.opened)));
+  }
+
   function selectableCells(round, excludedIndexes = []) {
     const excluded = new Set((Array.isArray(excludedIndexes) ? excludedIndexes : []).map(Number));
-    return round.cells.filter((cell) => !(cell.opened && cell.kind === "loss")
-      && !excluded.has(cell.index));
+    return round.cells.filter((cell) => !excluded.has(cell.index));
   }
 
   function playerRewardMultiplier(round, extraCell = null) {
@@ -315,8 +320,7 @@
         }))
         .filter((hit) => hit.baseMultiplier > 1)
       : [];
-    const extraMultiplierActive = extraCell?.kind === "multiplier"
-      && (!extraCell.purpleOnly || round.boostActive || extraCell.boostedDisplay);
+    const extraMultiplierActive = extraCell?.kind === "multiplier";
     if (extraMultiplierActive && Number(extraCell.baseMultiplier) > 1) {
       hits.push({
         baseMultiplier: Number(extraCell.baseMultiplier),
@@ -333,7 +337,7 @@
     const initialPucks = Math.max(1, Number(round.initialPucks ?? round.pucks) || 1);
     const survivors = Math.max(
       0,
-      Math.min(initialPucks, Number(remainingPucks ?? round.remainingPucks ?? initialPucks) || 0)
+      Number(remainingPucks ?? round.remainingPucks ?? initialPucks) || 0
     );
     return playerRewardMultiplier(round, extraCell) * survivors / initialPucks;
   }
@@ -347,8 +351,11 @@
 
   function candidateCashoutMultiplier(round, cell) {
     if (!cell) return 0;
-    if (cell.kind === "loss") {
+    if (isLossOutcome(cell)) {
       return playerCashoutMultiplier(round, null, Math.max(0, Number(round.remainingPucks) - 1));
+    }
+    if (cell.kind === "pocket") {
+      return playerCashoutMultiplier(round, null, Math.max(0, Number(round.remainingPucks) || 0) + 2);
     }
     return playerCashoutMultiplier(round, cell);
   }
@@ -390,9 +397,12 @@
       return { mean, weights, totalWeight };
     };
 
-    let lower = -80;
-    let upper = 80;
-    for (let iteration = 0; iteration < 90; iteration += 1) {
+    // Long risk chains can create a very wide multiplier range. Keep enough
+    // exponential headroom for the solver to reach the low-value outcomes
+    // precisely instead of drifting upward late in a round.
+    let lower = -700;
+    let upper = 700;
+    for (let iteration = 0; iteration < 110; iteration += 1) {
       const middle = (lower + upper) / 2;
       if (meanAt(middle).mean < targetUnit) lower = middle;
       else upper = middle;
@@ -404,8 +414,8 @@
   function selectionProbabilities(round, excludedIndexes = []) {
     const selectable = selectableCells(round, excludedIndexes);
     if (!selectable.length) return [];
-    const lossCells = selectable.filter((cell) => cell.kind === "loss");
-    const safeCells = selectable.filter((cell) => cell.kind !== "loss");
+    const lossCells = selectable.filter(isLossOutcome);
+    const safeCells = selectable.filter((cell) => !isLossOutcome(cell));
     if (!safeCells.length) {
       return lossCells.map((cell) => ({ cell, probability: 1 / lossCells.length }));
     }
@@ -442,22 +452,12 @@
     const multiplierStreakFactor = emptyStreak > 0 ? 1.7 : 1;
     const safeSelectionPrior = (cell) => {
       const repeatWeight = cell.opened ? OPENED_CELL_REPEAT_WEIGHT : 1;
-      const inactivePurpleMultiplier = cell.kind === "multiplier"
-        && cell.purpleOnly
-        && !round.boostActive
-        && !cell.boostedDisplay;
-      const effectiveKind = cell.opened && cell.kind === "diamond"
-        || (cell.kind === "multiplier" && cell.neutral)
-        || inactivePurpleMultiplier
-        ? "empty"
-        : cell.kind;
-      if (effectiveKind === "empty") return repeatWeight * EMPTY_SELECTION_PRIOR * emptyStreakFactor;
-      if (effectiveKind === "multiplier") {
+      if (cell.kind === "multiplier") {
         const tierPrior = MULTIPLIER_TIER_PRIORS[cell.tier] || 1;
         return repeatWeight * MULTIPLIER_SELECTION_PRIOR * tierPrior * multiplierStreakFactor;
       }
-      if (effectiveKind === "diamond") return repeatWeight * DIAMOND_SELECTION_PRIOR;
-      if (effectiveKind === "pocket") return repeatWeight * POCKET_SELECTION_PRIOR;
+      if (cell.kind === "diamond") return repeatWeight * DIAMOND_SELECTION_PRIOR;
+      if (cell.kind === "pocket") return repeatWeight * POCKET_SELECTION_PRIOR;
       return repeatWeight;
     };
     const safeShares = tiltedProbabilities(
@@ -477,16 +477,16 @@
   }
 
   function expectedSafeWeight(round, excludedIndexes = []) {
-    const safeCells = selectableCells(round, excludedIndexes).filter((cell) => cell.kind !== "loss");
+    const safeCells = selectableCells(round, excludedIndexes).filter((cell) => !isLossOutcome(cell));
     if (!safeCells.length) return 1;
     return safeCells.reduce((sum, cell) => sum + rawCellWeight(round, cell), 0) / safeCells.length;
   }
 
   function stepMultiplierForCell(round, cell, excludedIndexes = []) {
-    if (!round || round.lost || !round.active || !cell || cell.kind === "loss") return 0;
+    if (!round || round.lost || !round.active || !cell || isLossOutcome(cell)) return 0;
     const selectable = selectableCells(round, excludedIndexes);
     if (!selectable.some((candidate) => candidate.index === cell.index)) return 0;
-    const safeCellCount = selectable.filter((candidate) => candidate.kind !== "loss").length;
+    const safeCellCount = selectable.filter((candidate) => !isLossOutcome(candidate)).length;
     if (!safeCellCount) return 0;
     const survivalCompensation = selectable.length / safeCellCount;
     return survivalCompensation * rawCellWeight(round, cell) / expectedSafeWeight(round, excludedIndexes);
@@ -561,7 +561,7 @@
     }
     const consumesLife = options.consumeLife !== false;
     if (consumesLife) round.resolvedPuckCount = (Number(round.resolvedPuckCount) || 0) + 1;
-    if (cell.kind === "loss") {
+    if (isLossOutcome({ ...cell, opened: wasOpened })) {
       if (consumesLife) {
         round.remainingPucks = Math.max(0, Number(round.remainingPucks) - 1);
       }
@@ -571,13 +571,7 @@
       round.cashoutMultiplier = round.playerCashoutMultiplier;
       return cell;
     }
-    const emptyOutcome = cell.kind === "empty"
-      || (cell.kind === "multiplier" && cell.neutral)
-      || (cell.kind === "diamond" && wasOpened)
-      || (cell.kind === "multiplier"
-        && cell.purpleOnly
-        && !round.boostActive
-        && !cell.boostedDisplay);
+    const emptyOutcome = cell.kind === "empty";
     round.emptyStreak = emptyOutcome ? (Number(round.emptyStreak) || 0) + 1 : 0;
     round.lastSafeKind = emptyOutcome ? "empty" : cell.kind;
     cell.stepMultiplier = resolvedStep;
@@ -590,9 +584,7 @@
       }
     }
     if (cell.kind === "pocket") round.pocketOpened = true;
-    const multiplierActive = cell.kind === "multiplier"
-      && !cell.neutral
-      && (!cell.purpleOnly || round.boostActive || cell.boostedDisplay);
+    const multiplierActive = cell.kind === "multiplier" && !cell.neutral;
     if (multiplierActive && Number(cell.baseMultiplier) > 1) {
       if (!Array.isArray(round.playerMultiplierHits)) round.playerMultiplierHits = [];
       round.playerMultiplierHits.push({
@@ -635,6 +627,7 @@
     PURPLE_WIN_SHARE,
     LINE_COUNTS,
     LOSS_CELL_COUNTS,
+    BASE_LOSS_CELL_COUNTS,
     MULTIPLIER_TABLES,
     GREEN_TIER_COUNTS,
     LOSS_HIT_PROBABILITY_SCALE,
@@ -652,6 +645,7 @@
     createRound,
     rawCellWeight,
     selectableCells,
+    isLossOutcome,
     playerCashoutMultiplier,
     playerRewardMultiplier,
     fairCashoutBeforeNextPick,

@@ -858,7 +858,7 @@ function getTreasurePlayerCashoutMultiplier(round, { boosted = null } = {}) {
   const initialPucks = Math.max(1, Number(round.initialPucks ?? round.pucks) || 1);
   const remainingPucks = Math.max(
     0,
-    Math.min(initialPucks, Number(round.remainingPucks ?? initialPucks) || 0)
+    Number(round.remainingPucks ?? initialPucks) || 0
   );
   return rewardMultiplier * remainingPucks / initialPucks;
 }
@@ -872,7 +872,7 @@ function syncTreasurePlayerCashoutMultiplier(round = state.treasureRound) {
 function recordTreasureMultiplierHit(round, cell) {
   const multiplierActive = cell?.kind === "multiplier"
     && !cell.neutral
-    && (!cell.purpleOnly || round?.boostActive || cell.boostedDisplay);
+    && Number(cell.baseMultiplier) > 1;
   if (!round || !multiplierActive || !(cell.baseMultiplier > 1)) {
     return syncTreasurePlayerCashoutMultiplier(round);
   }
@@ -914,7 +914,7 @@ function createTreasureShotOutcome(round, puckCount, seed) {
   const planCellResolution = (cell, { consumeLife = true } = {}) => {
     const plannedCell = planningRound.cells[cell.index];
     const wasOpened = Boolean(plannedCell.opened);
-    const stepMultiplier = planningRound.active && plannedCell.kind !== "loss"
+    const stepMultiplier = planningRound.active && !math.isLossOutcome(plannedCell)
       ? math.stepMultiplierForCell(planningRound, plannedCell, plannedExclusions)
       : 0;
     if (planningRound.active) {
@@ -957,12 +957,9 @@ function createTreasureShotOutcome(round, puckCount, seed) {
   if (!mainSelections.length) return null;
   const resultForCell = (cell, plan, puckIndex, resultPath, pocketRelease = false) => {
     const repeated = Boolean(plan?.wasOpened);
-    const purpleOnlyBeforeBoost = cell.purpleOnly && !planningRound.boostActive;
     const effectiveKind = repeated && cell.kind === "diamond"
-      ? "empty"
-      : purpleOnlyBeforeBoost
-        ? "empty"
-        : cell.kind;
+      ? "loss"
+      : cell.kind;
     return {
       puck_index: puckIndex,
       result_path: resultPath,
@@ -987,27 +984,23 @@ function createTreasureShotOutcome(round, puckCount, seed) {
     const resultPath = `${round.shotCount}:${puckIndex}`;
     const result = resultForCell(cell, plan, puckIndex, resultPath, false);
     if (!result.secret_room || !planningRound.active) return result;
+    // The captured ball is reused as one of the three released balls, so the
+    // pocket adds two lives to the current risk pool before those balls land.
+    planningRound.remainingPucks = Math.max(
+      0,
+      Number(planningRound.remainingPucks) || 0
+    ) + 2;
     const releaseSelections = [];
     for (let releaseIndex = 0; releaseIndex < 3; releaseIndex += 1) {
       const releaseSeed = (seed ^ math.hashString(`pocket-release:${resultPath}:${releaseIndex}`)) >>> 0;
-      const selection = selectAndPlanCell(releaseSeed, { consumeLife: false, excludeLoss: true });
+      const selection = selectAndPlanCell(releaseSeed);
       if (!selection) break;
       releaseSelections.push(selection);
     }
-    const fallbackCells = round.cells.filter((candidate) =>
-      candidate.kind !== "loss"
-      && candidate.kind !== "pocket"
-      && !plannedExclusions.includes(candidate.index));
-    while (releaseSelections.length < 3 && fallbackCells.length) {
-      const fallback = fallbackCells.shift();
-      const cell = { ...fallback, kind: "empty", tier: null, displayMultiplier: null };
-      plannedExclusions.push(cell.index);
-      releaseSelections.push({
-        cell,
-        plan: { wasOpened: Boolean(cell.opened), stepMultiplier: 0 }
-      });
+    if (releaseSelections.length !== 3) {
+      throw new Error(`Pocket ${resultPath} could not plan exactly three release outcomes`);
     }
-    result.release_results = releaseSelections.slice(0, 3).map(({ cell: releaseCell, plan: releasePlan }, releaseIndex) =>
+    result.release_results = releaseSelections.map(({ cell: releaseCell, plan: releasePlan }, releaseIndex) =>
       resultForCell(releaseCell, releasePlan, releaseIndex, `${resultPath}.${releaseIndex}`, true));
     return result;
   });
@@ -2282,6 +2275,46 @@ function drawGridLines(half, grid, color, width) {
   ctx.stroke();
 }
 
+function isTreasureBlackCell(cell) {
+  const math = window.BalloroTreasureMath;
+  return Boolean(cell && (math?.isLossOutcome?.(cell) || cell.kind === "loss"));
+}
+
+function drawTreasureGridLines(half, grid, color, width) {
+  ctx.beginPath();
+  for (let row = 0; row < GRID_SIZE; row += 1) {
+    const y0 = -half + grid * row;
+    const y1 = y0 + grid;
+    for (let divider = 1; divider < GRID_SIZE; divider += 1) {
+      const leftCell = getTreasureCell(divider - 1, row);
+      const rightCell = getTreasureCell(divider, row);
+      if (isTreasureBlackCell(leftCell) && isTreasureBlackCell(rightCell)) continue;
+      const x = -half + grid * divider;
+      const start = toScreen(x, y0);
+      const end = toScreen(x, y1);
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+    }
+  }
+  for (let col = 0; col < GRID_SIZE; col += 1) {
+    const x0 = -half + grid * col;
+    const x1 = x0 + grid;
+    for (let divider = 1; divider < GRID_SIZE; divider += 1) {
+      const topCell = getTreasureCell(col, divider - 1);
+      const bottomCell = getTreasureCell(col, divider);
+      if (isTreasureBlackCell(topCell) && isTreasureBlackCell(bottomCell)) continue;
+      const y = -half + grid * divider;
+      const start = toScreen(x0, y);
+      const end = toScreen(x1, y);
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+    }
+  }
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
 function drawMergedMultiplierCell(group, fill, stroke = null, strokeWidth = 2) {
   const { half, grid } = state.field;
   const x0 = -half + grid * group.col;
@@ -3197,7 +3230,9 @@ function drawMainFieldMultiplierLabels(mergedMultiplierCells, bonusGridActive, h
 }
 
 function isTreasureSafeCell(cell) {
-  return Boolean(cell && cell.kind !== "loss");
+  return Boolean(cell
+    && cell.kind !== "loss"
+    && !(cell.kind === "diamond" && cell.opened && !cell.diamondVisible));
 }
 
 function getTreasureClosedCellPaint(
@@ -3213,7 +3248,11 @@ function getTreasureClosedCellPaint(
       : boosted
         ? `rgba(78, 35, 104, ${fillAlpha})`
         : `rgba(7, 67, 38, ${fillAlpha})`,
-    stroke: boosted ? "rgba(190, 124, 234, 0.52)" : "rgba(27, 184, 102, 0.24)"
+    stroke: safeCell
+      ? boosted
+        ? "rgba(190, 124, 234, 0.52)"
+        : "rgba(27, 184, 102, 0.24)"
+      : null
   };
 }
 
@@ -3458,7 +3497,7 @@ function drawTreasureField() {
         drawCell(col, row, paint.fill, paint.stroke);
         continue;
       }
-      const openedCellFill = cell?.kind === "loss"
+      const openedCellFill = isTreasureBlackCell(cell)
         ? "#000000"
         : bonusGridActive
           ? "rgba(78, 35, 104, 0.5)"
@@ -3472,7 +3511,7 @@ function drawTreasureField() {
   const treasureGridColor = bonusGridActive
     ? "rgba(190, 124, 234, 0.52)"
     : "rgba(27, 184, 102, 0.24)";
-  drawGridLines(half, grid, treasureGridColor, 2);
+  drawTreasureGridLines(half, grid, treasureGridColor, 2);
 
   const movingHighlightedCells = new Set();
   state.pucks.forEach((puck) => {
@@ -7458,6 +7497,15 @@ function beginSecretRoomVisit(puck) {
   }
   const releaseStartIndex = state.nextPocketReleaseIndex;
   state.nextPocketReleaseIndex += 3;
+  if (TREASURE_MECHANICS_ENABLED && !puck.pocketLifeBonusApplied && state.treasureRound?.active) {
+    state.treasureRound.remainingPucks = Math.max(
+      0,
+      Number(state.treasureRound.remainingPucks) || 0
+    ) + 2;
+    puck.pocketLifeBonusApplied = true;
+    state.roundWinAmount = getTreasureCashoutAmount(state.treasureRound);
+    updateRoundWinLabel();
+  }
   const extraPucks = [1, 2].map((releaseOffset) => {
     const releaseIndex = releaseStartIndex + releaseOffset;
     const releasePuck = createPocketReleasePuck(puck, zone, releaseIndex, releaseResults[releaseOffset]);
@@ -7735,7 +7783,7 @@ function revealTreasureCellForPuck(puck) {
     cell = math.revealCell(round, cell.index, {
       stepMultiplier: result.treasure_step_multiplier,
       shotKey: result.result_path ? String(result.result_path).split(".")[0].split(":")[0] : null,
-      consumeLife: !result.pocket_release
+      consumeLife: true
     });
   } else if (cell && !cell.opened) {
     cell.opened = true;
@@ -8371,6 +8419,26 @@ function fitLocalizedUiText() {
   });
 }
 
+function formatRemainingBallCount(value) {
+  const count = Math.max(0, Math.floor(Number(value) || 0));
+  if (state.language === "ru") {
+    const mod10 = count % 10;
+    const mod100 = count % 100;
+    const noun = mod10 === 1 && mod100 !== 11
+      ? "ШАР"
+      : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+        ? "ШАРА"
+        : "ШАРОВ";
+    return `${count} ${noun}`;
+  }
+  if (state.language === "de") return `${count} ${count === 1 ? "BALL" : "BÄLLE"}`;
+  if (state.language === "fr") return `${count} ${count === 1 ? "BOULE" : "BOULES"}`;
+  if (state.language === "es" || state.language === "pt") {
+    return `${count} ${count === 1 ? "BOLA" : "BOLAS"}`;
+  }
+  return `${count} ${count === 1 ? "BALL" : "BALLS"}`;
+}
+
 function updateBetButtons() {
   const treasureRoundActive = TREASURE_MECHANICS_ENABLED && Boolean(state.treasureRound?.active);
   const controlsLocked = state.running || state.launchPrepared || treasureRoundActive;
@@ -8380,6 +8448,7 @@ function updateBetButtons() {
   els.betSlots.forEach((slot) => {
     const value = parseBet(slot);
     const action = slot.querySelector(".bet-action");
+    const remainingBalls = action.querySelector(".remaining-balls");
     const input = slot.querySelector(".bet-value");
     const betStepButtons = slot.querySelectorAll(".bet-round-button");
     action.classList.remove("waiting", "cashout", "mining", "free-shot");
@@ -8393,6 +8462,7 @@ function updateBetButtons() {
       action.classList.add("waiting");
       action.querySelector("span").textContent = t("wait");
       action.querySelector("small").textContent = t("round");
+      if (remainingBalls) remainingBalls.textContent = "";
       return;
     }
 
@@ -8400,11 +8470,15 @@ function updateBetButtons() {
       action.classList.add("free-shot");
       action.querySelector("span").textContent = t("continueRisk");
       action.querySelector("small").textContent = t("freeContinuation");
+      if (remainingBalls) {
+        remainingBalls.textContent = formatRemainingBallCount(state.treasureRound.remainingPucks);
+      }
       return;
     }
 
     action.querySelector("span").textContent = t("bet");
     action.querySelector("small").textContent = `${formatStake(value * state.puckCount)} USD`;
+    if (remainingBalls) remainingBalls.textContent = "";
   });
 
   els.puckCountButtons.forEach((button) => {

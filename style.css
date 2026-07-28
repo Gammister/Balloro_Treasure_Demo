@@ -1957,6 +1957,18 @@ canvas {
   white-space: nowrap;
 }
 
+.bet-action .remaining-balls {
+  display: none;
+  min-height: 1em;
+  font-size: clamp(0.56rem, 1.55vw, 0.72rem);
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  opacity: 0.86;
+  white-space: nowrap;
+}
+
 .bet-action.waiting {
   background: linear-gradient(180deg, #ff604d, #be281e);
   box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.18), 0 12px 24px rgba(255, 96, 77, 0.2);
@@ -1987,6 +1999,10 @@ canvas {
   font-weight: 900;
   letter-spacing: 0.055em;
   opacity: 0.84;
+}
+
+.bet-action.free-shot .remaining-balls {
+  display: block;
 }
 
 .bet-action.free-shot span {
